@@ -1,0 +1,329 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url(../fontes/idroid.otf) format(opentype);
+}
+
+/*
+É possível utilizar variáveis dentro do CSS. Isso não torna a linguagem CSS uma linguagem de programação... Ela ainda continua sendo uma linguagem de marcação, assim como o HTML. Toda linguagem de programação tem variáveis, mas nem toda linguagem que tem variável é uma linguagem de programação.
+
+As Variáveis GUARDAM VALORES para serem usados mais na frente no nosso projeto/programa. 
+
+Por que deveríamos usar variáveis em CSS? Porque isso facilita, e muito, o nosso processo de desenvolvimento e posteriormente a manutenção do projeto , caso desejemos alterar algo no futuro... Fora que tudo fica ainda mais organizado.
+
+Usando a Paleta de Cores de um projeto qualquer como exemplo, geralmente alguns desenvolvedores simplesmente fixam a Paleta de Cores (códigos das cores) de um site em um comentário no documento CSS, e copiam e colam esses códigos sempre que precisam alterar uma cor... Na realidade esse não é o modo mais adequado de se fazer isso e existe uma maneira muito melhor e prática de se obter um melhor resultado, com variáveis CSS.
+
+Para declarar variáveis em CSS, devemos criar uma Pseudo-classe especial dentro do documento CSS atual, que seria uma espécie de referência dentro desse documento.
+
+As variáveis CSS são definidas dentro da Pseudo-classe " root " ( :root {...} ). Essa pseudo-classe define as configurações para a " RAIZ DA ÁRVORE ", que vai servir para o documento inteiro . 
+
+Tudo que colocarmos e definirmos dentro dessa pseudo-classe será válido para todo o documento, já que essa pseudoclasse (root) tem uma especificidade muito alta, ou seja, aplicado ao HTML, :root representa o elemento <html> e é idêntico ao seletor html, abrangendo todo o projeto... Dessa forma, basicamente podemos criar Variáveis "Globais" dentro de root.
+
+Observação: Por exemplo, em linguagens de programação, normalmente temos uma "área principal", que é onde podemos declarar as nossas variáveis globais... No CSS, essa "área principal" é na Pseudo-classe root.
+
+Todas as Variáveis em CSS tem que começar com " dois traços " ( -- ), após isso é preciso dar um nome (de sua preferência) para essa variável, posteriormente inserindo o valor da variável (código da cor nesse caso). Exemplo:
+
+:root {
+    --cor0: #ebe5c5;
+    --cor1: #83e1ab;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+}
+
+Nota: Não cadastramos as cores branco e preto nas variáveis do exemplo, mas isso é opcional e se você quiser pode cadastrar... Já que branco e preto sempre vai estar em um site, independentemente da Paleta utilizada.
+
+IMPORTANTE: Referente ao nome que damos para as nossas variáveis, ele é de sua preferência e você pode nomear como no exemplo acima, mas você também pode nomear de acordo com a função da variável. Por exemplo, no caso das cores da nossa Paleta, podemos nomear cada cor (variável) com o seu respectivo encargo, exemplo: "cor-de-destaque", "cor-de-fundo" e etc.
+
+Recapitulando... Para declararmos variáveis CSS, devemos abrir um seletor para a pseudo-classe "root" (referência e raiz da árvore) no início do código CSS (logo após os códigos de regra) e posteriormente declarar as nossas variáveis ( -- ) dentro desse seletor. 
+
+Depois de declarar as suas variáveis "globais" de cor dentro do root, na hora de formatarmos um elemento , qualquer elemento que seja, ao invés de digitar ou copiar e colar um código de cor, simplesmente usamos o atalho "Ctrl + Espaço", avançamos até o fim da lista de sugestões e lá estará a nossa Paleta de Cores declarada no root (valores guardados por variáveis)... Posteriormente basta escolher a cor desejada e adicioná-la.
+
+Ao selecionar variáveis na lista de sugestões como valor da respectiva Propriedade, o VSC coloca a função "var(--ex-nome);" como o valor (também é possível digitar a especificação da variável ao invés de usar a lista).
+
+O legal das variáveis é que podemos pode usá-las em quaisquer elementos e depois, se um cliente pedir por exemplo, facilmente trocar o tema do site inteiro só mudando o valor que está configurado na variável (dentro de root)... É tipo um CSS dentro do CSS, trocando o valor da variável global que está no :root, você troca no site inteiro ... Tudo que foi configurado com essa cor/variável irá ser automaticamente adaptado , sem precisar modificar propriedade por propriedade, item por item...
+
+Lembrando que nos exemplos anteriores, usamos variáveis contendo valores de cores, mas ainda dentro do mesmo seletor root que abrimos, podemos também declarar variáveis de fontes de texto, tanto fontes padrão, externas ou locais... E tudo irá funcionar exatamente como as variáveis de cores. Exemplo:
+
+:root {
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', sans-serif;
+    --fonte-android: 'Android', sans-serif;
+}
+---> 'Bebas Neue' e 'Android' são fontes externas e locais respectivamente, que foram configuradas como valor de variáveis.
+
+Observação: Ao iniciarmos a configuração CSS de um novo projeto, por uma questão de organização, é muito indicado que você vá abrindo os seletores de estilização CSS de acordo com a ordem das tags da estrutura HTML , assim os seletores CSS ficarão organizados ao invés de aglomerados e completamente desordenados, e na hora de fazer alguma alteração pontual você irá se nortear de forma muito mais fácil pelo código CSS.
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ab;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', sans-serif;
+    --fonte-android: 'Android', sans-serif;
+}
+
+html {
+    height: 100%;
+    font-family: var(--fonte-padrao);
+}
+
+body {
+    background-color: var(--cor0);  
+}
+
+header {
+    color: white;
+    background-image: linear-gradient(to bottom, var(--cor3 ), var(--cor4), var(--cor5));
+
+    min-height: 150px;
+
+    text-align: center;
+
+    padding: 30px 0 0 0;
+}
+
+header > h1 {
+    font-size: 3em;
+    font-family: var(--fonte-destaque);
+    font-weight: normal;
+
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.419);
+
+    margin: 0 0 20px 0;
+}
+
+header p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.1em;
+
+    padding-bottom: 10px;
+
+    max-width: 500px;
+    margin: auto;
+}
+
+nav {
+    background-color: var(--cor5);
+
+    padding: 10px;
+    
+
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.420);
+}
+
+nav a {
+    color: white;
+
+    transition-duration: 0.6s;
+
+    padding: 10px;
+
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--cor5);
+    background-color: var(--cor3);
+
+    padding: 2px 5px 5px 5px;
+
+    border-radius: 3px;
+
+    transition-duration: .6s;
+}
+
+main {
+    margin: auto;
+    min-width: 310px;
+    max-width: 1200px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.420);
+
+    padding-top: 20px;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+main img {
+    width: 100%;
+}
+
+.pequena {
+    display: block;
+    margin: auto;
+
+    max-width: 350px;
+
+}
+
+main h1 {
+    text-indent: 8px;
+
+    font-family: var(--fonte-android);
+    font-weight: normal;
+
+    color: var(--cor5);
+
+    padding: 0 0 0 8px;
+}
+
+main h2 {
+    color: var(--cor4);
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+
+    font-size: 1.3em;
+    font-family: var(--fonte-android);
+    font-weight: normal;
+
+    text-indent: 8px;
+
+    border-radius: 3px;
+
+    padding: 4px 0 4px 8px;
+}
+
+main p {
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.5em;
+
+    padding: 15px 8px;
+}
+
+main a {
+    text-decoration: none;
+    
+    font-weight: bold;
+
+    color: var(--cor5);
+    background-color: var(--cor1);
+
+    padding: 2px 6px;
+
+    border-radius: 3px;
+}
+
+main a::after {
+    content: '\00a0\1F517';
+}
+
+main a:hover{
+    text-decoration: underline;
+
+    color: var(--cor4);
+}
+
+strong {
+    font-family: var(--fonte-destaque);
+    font-weight: bold;
+
+    color: var(--cor4);
+}
+
+.video {
+    background-color: transparent;
+
+    margin: 0px 0 30px 0;
+
+    padding: 20px;
+    padding-bottom: 59%;
+
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    min-width: 315px;
+    max-width: 1100px;
+    
+    margin: auto;
+
+    padding: 5px;
+
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.280);
+
+    border-radius: 5px;
+
+    background-color: var(--cor1);
+}
+
+aside h3 {
+    font-family: var(--fonte-padrao);
+
+    background-color: var(--cor4);
+    color: white;
+    
+    padding: 5px;
+
+    margin: -5px -5px 0 -5px;
+
+    border-top-left-radius: 6px;
+
+    border-top-right-radius: 6px;
+}
+
+ul {
+    list-style-type: '\2714\00a0\00a0'; /* Não é compativel com todo tipo de navegador*/
+    list-style-position: inside;
+    columns: 2;
+}
+
+#link-aside {
+    color: var(--cor5);
+    background-color: var(--cor2);
+
+    padding: 2px 6px;
+
+    border-radius: 3px;
+}
+
+
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+
+    text-align: center;
+    font-size: 0.8em;
+
+    padding: 5px;
+}
+
+footer a {
+    color: white;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/*
+Tanto o "id" quanto o "class" tem a função de fazer com que as CSS modifiquem apenas um ou mais tipos de seletores desejados, mesmo se tiverem outras tags iguais. A diferença é que o "id", de acordo com a W3C, não deve identifcar duas tags como a mesma coisa, já o "class" seria o inverso.
+
+HTML: "class"; "id" = CSS: "."; "#"
+
+ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(185, 244, 247, 0.627);
+}
+
+h1 {
+    color: rgb(137, 21, 137);
+}
+
+h2 {
+    text-align: center;
+}
+
+#HTML {
+    color: rgb(194, 129, 254);
+}
+
+#CSS {
+    color: cadetblue;
+}
+
+.basico {
+    color: rgb(15, 163, 114);
+}
+
+.intermediario {
+    color: rgb(132, 0, 255);
+}
+
+.avancado {
+    color: rgb(65, 65, 255);
+}
+
+.destaque {
+    background-color: aquamarine;
+}
+
+h3 {
+    color: rgb(0, 0, 195);
+}
+
+p {
+    text-align: justify;
+}

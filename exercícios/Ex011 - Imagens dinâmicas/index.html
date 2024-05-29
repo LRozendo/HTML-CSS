@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídias em HTML5</title>
+</head>
+<body>
+    <h1>Imagem dinâmica</h1>
+
+    <p>Tente abrir esse site em vários dispositivos diferentes ou simplesmente aumente e diminua o tamanho do seu navegador.</p>
+
+    <picture>
+        <source media="(max-width: 750px )" srcset="Imagens/foto-p.png">
+        <source media="(max-width: 1050px)" srcset="Imagens/foto-m.png" type="image/png">
+        <img src="Imagens/foto-g.png" alt="Imagem Flexivel">
+    </picture>
+
+    <!--O elemento <picture> tem como função providenciar varias sources de midia e mudalas -->
+
+
+    <h1>Reproduzindo áudio</h1>
+
+    <p>vamos aprender a reproduzier áudios em HTML5</p>
+
+    <audio src="midia/guanacast-33.mp3" controls autoplay></audio> <!--Usando a tag <audio> juntamente com o parâmetro controls é a forma mais simples, mas menos eficaz de se reproduzir um áudio, até porque essa tag é limitada a usar apenas um formato de arquivo.-->
+
+    <br>
+
+    <audio controls preload="metadata" autoplay>
+        <source src="midia/happy-mistake.mp3" type="audio/mpeg">
+        <source src="midia/happy-mistake.ogg" type="audio/ogg">
+        <source src="midia/happy-mistake.wav" type="audio/wav">
+
+        <p>
+            Infelizmente seu navegador não suporta uma reprodção de áudio, clique <a href="midia/happy-mistake.mp3" download="midia/happy-mistake.mp3">aqui</a> para baixa-lo.
+        </p> <!--Nesse caso, a tag <p> e o download do mp3 só servem para prevenir caso o navegador não tenha nenhum suporte a tag <audio>.-->
+
+    </audio> <!--Usando a tag <audio> como elemento, pode-se usar diversas sources para diversificar os formatos que poderão ser carregados.-->
+</body>
+</html>

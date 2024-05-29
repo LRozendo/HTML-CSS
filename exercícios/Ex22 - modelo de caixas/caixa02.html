@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping tags</title>
+    <!-- Grouping tags são tags de aninhamento que ajudam a organizar o site de forma semântica-->
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+
+            height: 100%;
+        }
+
+        body {
+            background-color: grey;
+
+            margin: 0px;
+        }
+
+        header {
+            background-color: white;
+
+            padding: 10px;
+
+            margin: 10px;
+        }
+        
+        nav { 
+            background-color: gray;
+
+            padding: 3px;
+
+            box-shadow: 2px 2px 3px rgba(48, 48, 48, 0.542); /* Sombra horizontal, Sombra vertical, Espalhamento, cor */
+        }
+
+        a {
+            color: white;
+
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: underline;
+        }
+
+        main {
+            background-color: white;
+
+            padding: 10px;
+
+            margin: 10px;
+
+            border-radius: 8px;
+
+            box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.150);
+        }
+
+        section > h2 {
+            color:  gray;
+        }
+
+        article {
+            background-color: gainsboro;
+        }
+
+        article > aside {
+            background-color: rgb(151, 151, 151);
+            
+            color: black;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+
+            text-align: center;
+
+            padding: 1px;
+        }
+
+        footer > p {
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meu site</h1>
+        <nav>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+        </nav>
+    </header>
+    <main>
+        <section id="noticias">
+            <h2>Tecnologia</h2>
+            <article>
+                <h3>Sobre o Brasil</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste error nisi corporis amet asperiores odit voluptatem perspiciatis quo! Animi ducimus ab consequuntur earum? Eos nam deleniti odit velit reprehenderit corporis.</p>
+                <aside>
+                    José Thiago
+                </aside>
+            </article>
+        </section>
+    </main>
+    <footer>
+        Desenvolvido por Lucas Rozendo
+    </footer>
+</body>
+</html>

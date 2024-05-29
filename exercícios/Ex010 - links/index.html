@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+</head>
+<body>
+    <h1>Usando links externos</h1>
+
+    <p> Você pode acessar meu <a href="https://www.instagram.com/l_rozendo_s/" target="_blank"
+        rel="external">instagram</a> </p>
+
+    <p>Ou o do meu amigo <a href="https://www.instagram.com/mano_lipz/" target="_blank" rel="external">Caio Felipe</a></p>
+
+    <!--Usamos a tag <a> para indicar uma âncora de hyperlink juntamente ao atributo href que indica a que URL ele será direcionado. É importante que se deveria utilizar colocando dois atributos extras, o target que controla onde o site irá abrir, e o rel que indica a natureza do destino. -->
+
+    <h1>Usando links externos</h1>
+    
+    <p>Se você quiser acessar a minha segunda página clice <a href="pag002.html" rel="Next">aqui</a></p>
+
+    <h1>Links de download</h1>
+
+    <ul>
+        <li>baixar <a href="Livro/meulivro.pdf" download="meulivro.pdf" type="application/pdf">pdf</a></li> <!--Para fazer download de um arquivo basta colocar o link dele, se ele estiver dentro de uma pasta basta fazer o mesmo esquema mostrado na pag002 e 003. Recomenda-se utilizar juntos os parâmetros "download", para indicar o download de um link, e "type", para indicar que aplicação de arquivo será baixado.-->
+
+        <!--Se o arquivo PDF não fez o download é porque o navegador tem por padrão a configuração de abrir documento .pdf no próprio navegador, se mudarmos essa configuração no navegador o arquivo .pdf vai fazer download-->
+        <li>Baixar <a href="Livro/meulivro.zip" type="application/zip">zip</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes em CSS</title>
+    <style>
+        /*
+        Medidas do tamanho de fontes:
+        
+        Medidas Absolutas - Não recomenda-se usar, pois pode haver problema na representação devido a diversos fatores como o tamanho da tela, resolução do aparelho e etc -:
+        cm,mm, in (polegada), px, pt, pc
+        
+        Medidas Relativas:
+        em (relativa ao tamanho "M" de uma fonte), ex (relativa à altura "x" de uma fonte), rem (tipo em, mas também é relativo ao root, fonte configurada no body), vw (relativa à porcentagem da largura da view port, da tela de quem está vendo), vh (tipo a vw, mas relativa à porcentagem da altura), %
+        ------------------------------------------------------------------------------------------------------------------
+        O W3C recomenda o uso apenas das medidas "px" e "em"
+
+        Geralmetne, 16px = 1em
+        */
+
+        h1 {
+            font-weight: bold; /*Peso*/
+            font-style: italic;/*Estilo*/
+            font-size: 1em;/*Tamanho*/
+            /*Também tem o font-decoration, mas a font que já vem configurada não a suporta*/
+        }
+
+        p {
+            /* Para facilitar o uso do font-size, font-weight e font-style, se pode usar a shorthand font*/
+
+            /*
+            Shorthand = 
+            font: font-style font-weight font-size font-family
+            */
+            font: normal normal 1em Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com fontes</h1>
+    <p style>xLorem ipsum dolor, sit amet consectetur adipisicing elit. Provident doloremque eius deserunt rem odit temporibus animi recusandae unde corrupti vel at necessitatibus magni dolorem ratione, ducimus nesciunt obcaecati, aliquid blanditiis!</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo suscipit veritatis quos facere hic iusto assumenda omnis quia! Quibusdam itaque minus impedit autem distinctio similique est adipisci nemo cum sint!</p>
+    <h2>Subtítulo do exercício</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+</body>
+</html>

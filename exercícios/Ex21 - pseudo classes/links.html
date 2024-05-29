@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        /*
+        ":" = pseudo-class
+        "::" = pseudo-element
+        */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+        }
+
+        a:Visited {
+            color: darkred;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: yellow;
+        }
+
+        a::before {
+            content: '[link]';
+            color: lightgray;
+        }
+
+        .especial {
+            color: red;
+            background-color: rgb(255, 127, 127);
+        }
+
+        .especial::before {
+            content: '→';
+            color: red;
+        }
+
+        .especial::after {
+            content: '←';
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalizando Links</h1>
+    <ul>
+        <li><a href="https://www.instagram.com/l_rozendo_s/" target="_blank" rel="external">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UCM3nbDn-LEV4ukDLI-TrHkw" target="_blank" rel="external" class="especial">Youtube</a></li>
+        <li><a href="https://github.com/gustavoguanabara" target="_blank" rel="external">GuitHub do  Guanabara</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de caixas</title>
+
+     <!--
+        User agent = seu navegador
+     -->
+
+    <style>
+        h1 {
+            background-color: lightgray;
+            height: 300px;
+            width: 300px;
+
+
+            border-width: 10px;
+            border-style: solid;
+            border-color: darkslategrey;
+
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px; /* Recomenda-se que no padding se começe por top, right, bottom e left */
+
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 40px;
+            margin-left: 20px; /* Recomenda-se que no margin se começe por top, right, bottom e left. se quiser que fique no meio do Vw então coloque a declaração: margin: auto; */
+
+            outline-width: 5px;
+            outline-style: dashed;
+            outline-color: salmon;
+        }
+
+        a {
+            border-width: 10px;
+            border-style: solid;
+            border-color: red;
+            
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+        }
+
+        #shorthand {
+            background-color: lightgray;
+            height: 300px;
+            width: 300px;
+
+            border: 10px solid rgb(47, 79, 79); /* width, style, color*/
+
+            padding: 10px; /* top, right, bottom e left. Se todas tiverem a mesma medida, basta apenas colocar uma vez.  */
+
+            margin: 20px 20px 40px 20px; /* top, right, bottom e left. Se todas tiverem a mesma medida, basta apenas colocar uma vez.  */
+
+            outline: 5px dashed salmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de caixa block-level</h1>
+    <p>Parágrafos também são exemplos de block-level, mas os <a href="#">links</a> são exemplos de caixas inline-level. Vamos ver como tudo isso funciona.</p>
+    <h1 id="shorthand">Exemplo de caixa block-level shorthand</h1>
+</body>
+</html>

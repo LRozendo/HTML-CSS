@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borda personalizada</title>
+    <style>
+        h1#normal {
+            border: 12px solid transparent;
+            border-image-source: url(imagens/borda.png);
+            border-image-slice: 20;
+            border-image-repeat: repeat;
+
+            padding: 10px;
+        }
+
+        #shorthand {
+            border: 12px solid transparent;
+            border-image: url(imagens/borda.png) 20 repeat; /* Source, Slice, Repeat */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="normal">Teste de borda personalizada</h1>
+    <h1 id="shorthand">Teste de borda personalizada com shorthand</h1>
+</body>
+</html>
