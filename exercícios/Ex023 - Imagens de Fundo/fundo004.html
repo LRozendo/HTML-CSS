@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamento</title>
+    <style>
+        body {
+            height: 100vh;
+
+            background-image: url(Imagens/pattern002.png);
+            background-size: 100px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        /*Exemplo do uso da propriedade:
+
+div {
+            background-image: url(imagens/exemplo.png);
+            background-repeat: no-repeat;
+            background-position: right bottom;   /*COLULA DIREITA E LINHA DA BASE
+        }
+
+Para a propriedade background-position, existem valores alternativos às sequências usualmente aplicadas e descritas acima ( coluna / linha ), que são inseridos de forma única. O valor "center" algumas vezes é irrelevante para o "background-position", já que quando inserimos os valores right, left, top ou bottom de forma ISOLADA, o center já é usado como padrão.
+
+Exemplo:
+
+Valor usualmente aplicado: background-position: right center
+
+Valor simplificado: background-position: right
+
+Os dois valores do exemplo apresentado acima darão no mesmo resultado de posicionamento... Ou seja, o "center" acaba não valendo de nada se o segundo valor for right, left, top ou bottom, visto que ele já é usado como padrão nessa circunstância (valor único isolado). O conteúdo vai ser alinhado ao centro pela direita... A mesma coisa aconteceria se fossem os valores bottom, left ou top de forma isolada no lugar de right, eles seriam alinhados ao centro.
+
+Usando a Propriedade de Estilo apresentada acima e os seus valores, nós conseguimos mudar o Ponto de Ancoragem das imagens de fundo.
+
+Importante: No nosso background, só vamos ver a imagem de fundo se mover por completa de um canto para o outro, caso a dimensão da caixa seja maior que o tamanho da imagem. Caso a imagem seja maior que a dimensão da nossa caixa, veremos apenas uma diferença no Ponto de Ancoragem dessa imagem dentro da caixa (outra parte de imagem como background).
+
+Nota: Algumas vezes, principalmente quando usamos o body, temos que mexer na altura do mesmo ( vh ) para realizar os nossos testes de imagem como background... Já que por padrão quando ele não tem conteúdo fica totalmente achatado, inviabilizando testes de posicionamento.*/
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

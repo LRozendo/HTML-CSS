@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alinhamento vertical</title>
+    <style>
+        #container {
+            background-image: url(Imagens/target001.png);
+            background-size: 100% 100%;
+            height: 97vh;
+            padding: 10px;
+            background-color: purple;
+            position: relative;
+        }
+
+        #counteudo {
+            background-image: url(Imagens/target001.png);
+            background-size: 100% 100%;
+
+            position: absolute;
+            height: 200px;
+            width: 400px;
+
+            left: 50%;
+            right: 50%;
+
+            transform: translate(-200px, 250px);
+            background-color: yellow;
+            
+        }
+
+        /* <body>
+    		<section id="container">
+        			<article id="conteúdo">
+
+        			</article>
+    		</section>
+	</body>
+
+
+Na parte de CSS:
+
+   - O que tá e fora (container) -> position: relative
+
+ Ex:	#container {
+            	position: relative;	-> opcional; em CSS já é relative por padrão
+            	height: 500px;
+            	padding: 10px;
+          	background-color: purple;
+        }	
+
+   - O que tá de dentro (conteúdo) -> position: absolute
+
+Ex: 	#conteúdo {
+            	position: absolute;	-> permite usar as propriedades top e left
+            	height: 200px;
+            	width: 400px;
+            	background-color: yellow;
+
+            	left: 50%;	-> o canto top left que ficará centralizado (precisa de transform)
+            	top: 50%;
+
+		transform: translate(-50%, -50%);	-> translate(mov horizontal, mov vertical).
+                                                                                -> Muda a posição de referência de 'topo/esquerdo' (padrão), para uma outra 
+                                                                                    qualquer (ex: centro)
+
+        }
+
+
+OBS: forma mais fácil de centralizar:
+
+      #container {
+	    display: flex;	        	(possui diversas funções, uma delas é habilitar o manejo do conteúdo)
+	    justify-content: center;	(alinhamento horizontal, dispensando o 'margin: auto')
+    	    align-items: center;		(alinhamento vertical)
+      }
+	   -> Essas propriedades são colocadas no elemento-pai (container, nesse exemplo). */
+    </style>
+</head>
+<body>
+    <section id="container">
+        <article id="counteudo"></article>
+    </section>
+</body>
+</html>
