@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            width: 300px;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 2px solid;
+
+            padding: 10px;
+            
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mesclagem de Células</h1>
+    
+    <table>
+        <tr>
+            <td>A</td>
+            <td colspan="2">B</td>
+        </tr>
+
+        <tr>
+            <td rowspan="3">D</td>
+            <td>E</td>
+            <td rowspan="2">F</td>
+        </tr>
+
+        <tr>
+            <td>H</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">K</td>
+        </tr>
+    </table>
+
+    <!-- A mesclagem de células é uma técnica muito importante e que está presente em muitas tabelas. Dessa forma, é altamente necessário que você aprenda a fazer mesclagem, porque cedo ou tarde você vai precisar usar isso no seu projeto.
+
+Entenda que apesar de chamarmos de "mesclagem de células", na realidade, considerando que você já tenha uma tabela montada, basicamente temos que deletar uma célula e expandir a célula vizinha. Dessa forma, é como se a célula vizinha que foi expandida, ocupasse também o espaço da célula que foi deletada... "mesclando".
+
+Portanto, se você quer mesclar células, a primeira coisa que você tem que fazer é ir no HTML da sua tabela e deletar a célula vizinha da célula que irá ser expandida. Depois que você fizer isso, a sua tabela irá ficar com um "buraco", uma lacuna ocasionada pela ausência da célula que foi deletada. (essa lacuna sempre vai começar pela parte direita da tabela, mesmo que a célula excluída seja da parte esquerda)
+
+Iremos preencher essa lacuna expandindo a célula vizinha, mesclando. Essa expansão pode ser feita em forma de coluna ou em forma de linha. 
+
+Quando devemos utilizar cada uma dessas formas de expansão (coluna ou linha)?
+
+- Utilize a expansão em forma de COLUNA quando a célula vizinha, aquela que você deletou, estiver ao lado (esquerdo ou direito) da célula que irá ser expandida. 
+
+- Utilize a expansão em forma de LINHA quando a célula vizinha, aquela que você deletou, estiver embaixo (nunca em cima) da célula que irá ser expandida. 
+
+EXPANSÃO NA PRÁTICA:
+
+Expansão em forma de COLUNA: Para fazer isso, dentro da célula que você quer expandir, você deve inserir o parâmetro HTML " colspan " com o valor " 2 ", fazendo a célula ocupar duas colunas. Se você quiser expandir essa célula para mais de duas colunas (previamente excluir as células vizinhas), altere o valor numérico do parâmetro. Esse valor numérico que define quantas " colunas " que a célula deve expandir.
+
+Expansão em forma de LINHA: Para fazer isso, dentro da célula que você quer expandir, você deve inserir o parâmetro HTML " rowspan " com o valor " 2 ", fazendo a célula ocupar duas linhas. Se você quiser expandir essa célula para mais de duas linhas (previamente excluir as células vizinhas), altere o valor numérico do parâmetro. Esse valor numérico que define quantas " linhas " que a célula deve expandir. -->
+</body>
+</html>

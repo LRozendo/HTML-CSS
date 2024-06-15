@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            margin: auto;
+            position: relative;
+        }
+
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        /* Quando temos uma tabela com muitos dados, com muitas colunas e principalmente com muitas linhas, conforme vamos descendo é natural que o cabeçalho fique para cima e "suma", e é nessa hora que algumas vezes acabamos nos perdendo na leitura da tabela, visto que esquecemos aquilo que determinadas colunas querem dizer 
+
+Um cabeçalho fixo pode solucionar esse problema, visto que conforme vamos scrollando a tabela, o cabeçalho se mantem fixo no topo, mantendo os títulos das colunas sempre visíveis. 
+
+Para fazer isso, devemos abrir um seletor para a área da cabeça da nossa tabela (thead), que é onde estão as células de título que constituem o nosso cabeçalho... E dentro desse seletor, declarar a propriedade " position " com o valor " sticky ". Após isso é necessário usar uma propriedade auxiliar do position, o " top "... E como não queremos mudar de lugar o nosso cabeçalho e sim apenas ativar o "sticky", você deve inserir nessa propriedade auxiliar o valor " -1px ", colando o cabeçalho na posição "zero".
+
+Exemplo do código:
+
+thead {
+    position: sticky;
+    top: -1px;
+}
+
+Um ponto positivo é que se em baixo da sua tabela você tiver mais conteúdo, conforme você vai scrollando, o cabeçalho que está fixo na tabela se limita fixo apenas dentro dessa tabela, ele não ficará por cima do resto do seu conteúdo.
+
+Observação: Essa técnica do cabeçalho fixo não está funcionando perfeitamente em todos os navegadores, então use esse recurso com moderação. */
+
+        thead th {
+            position: sticky;
+            top: 1px;
+            background-color: #383838;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        thead, tfoot {
+            background-color: #383838;
+            color: white;
+        }
+
+        tbody > tr:nth-child(2n) {
+            background-color: lightgray;
+        }
+
+        /* Obs.: Dentro do seletor exemplificado acima, temos uma declaração de especificação de background, a cor determinada nessa declaração que vai ser aplicada nas linhas zebradas.
+
+        Na pseudo-classe " nth-child() ", ao invés de usarmos o valor " 2n ", também podemos usar os valores nominais " even " OU " odd " (par ou ímpar). Com um desses dois nomes como valor, podemos deixar toda linha que é ímpar (odd) com background, ou vice-versa, se for o valor even.
+
+        O valor " 2n " seria equivalente ao valor nominal " even " (par)
+
+        Entretanto, também temos o valor " 2n-1 ", que seria equivalente ao valor nominal " odd " (ímpar) */
+
+        .number {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabelas grandes</h1>
+    <!-- 
+        ANATOMIA DAS TABELAS GRANDES
+        TABLE
+            CAPTION
+
+            THEAD - Cabeçalho (não é necessário sempre usar) 
+                TR, TD, TH
+
+            TBODY - Corpo
+                TR, TD, TH
+                
+            TFOOT - pé (não é necessário sempre usar)
+                TR, TD, TH
+        -----------------------------------
+        Scope = Representa uma coluna (col) ou uma linha (row) que um <th> se refere
+    -->
+
+
+    <table>
+        <caption>População das Unidades Federativas</caption>
+
+        <thead>
+            <tr>
+                <th scope="col" style="font-size: 1.4em;">Unidade Federativa</th> <th scope="col" style="width: 100px;">População (Censo de 2022) </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr> <td>São Paulo</td> <td class="number">44 411 238</td></tr>
+
+            <tr><td>Minas Gerais</td> <td class="number">20 538 718</td></tr>
+
+            <tr><td>Rio de Janeiro</td> <td class="number">16 054 524</td></tr>
+
+            <tr>
+                <td>Bahia</td>
+                <td class="number">14 141 626</td>
+            </tr>
+            <tr>
+                <td>Paraná</td>
+                <td class="number">11 444 380</td>
+            </tr>
+            <tr>
+                <td>Rio Grande do sul</td>
+                <td class="number">10 882 965</td>
+            </tr>
+            <tr>
+                <td>Pernambuco</td>
+                <td class="number">9 058 931</td>
+            </tr>
+            <tr>
+                <td>Ceará</td>
+                <td class="number">8 794 957</td>
+            </tr>
+            <tr>
+                <td>Pará</td>
+                <td class="number">8 121 025</td>
+            </tr>
+            <tr>
+                <td>Santa Catarina</td>
+                <td class="number">7 610 361</td>
+            </tr>
+            <tr>
+                <td>Goiás</td>
+                <td class="number">7 056 495</td>
+            </tr>
+            <tr>
+                <td>Maranhão</td>
+                <td class="number">6 775 805</td>
+            </tr>
+            <tr>
+                <td>Paraíba</td>
+                <td class="number">3 974 687</td>
+            </tr>
+            <tr>
+                <td>Amazonas</td>
+                <td class="number">3 941 613</td>
+            </tr>
+            <tr>
+                <td>Espírito Santo</td>
+                <td class="number">3 833 712</td>
+            </tr>
+            <tr>
+                <td>Mato Grosso</td>
+                <td class="number">3 658 649</td>
+            </tr>
+            <tr>
+                <td>Rio Grande do Norte</td>
+                <td class="number">3 302 729</td>
+            </tr>
+            <tr>
+                <td>Piauí</td>
+                <td class="number">3 271 199</td>
+            </tr>
+            <tr>
+                <td>Alagoas</td>
+                <td class="number">3 127 683</td>
+            </tr>
+            <tr>
+                <td>Distrito Federal</td>
+                <td class="number">2 817 381</td>
+            </tr>
+            <tr>
+                <td>Mato Grosso do Sul</td>
+                <td class="number">2 757 013</td>
+            </tr>
+            <tr>
+                <td>Sergipe</td>
+                <td class="number">2 209 558</td>
+            </tr>
+            <tr>
+                <td>Rondônia</td>
+                <td class="number">1 581 196	</td>
+            </tr>
+            <tr>
+                <td>Tocantins</td>
+                <td class="number">1 511 460</td>
+            </tr>
+            <tr>
+                <td>Acre</td>
+                <td class="number">830 018 </td>
+            </tr>
+            <tr>
+                <td>Amapá</td>
+                <td class="number">733 759</td>
+            </tr>
+            <tr>
+                <td>Roraima</td>
+                <td class="number">636 707</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th scope="row">Total de habitantes</th>
+                <td>203 062 512</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
