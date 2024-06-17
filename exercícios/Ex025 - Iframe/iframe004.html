@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe</title>
+</head>
+<body>
+    <h1>Meu site Principal</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatem sunt autem vitae ipsam adipisci quisquam saepe hic consequatur, rem dolorum alias voluptate animi magni eveniet est quod, magnam itaque.</p>
+
+    <iframe src="paginas_extras/pagina004.html" frameborder="1" sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer"><p style="font-weight: bold;">Seu navegador infelizmente não é compatível com iframes</p></iframe>
+
+    <!-- Existem algumas configurações que podemos fazer nos nossos iframes para torná-los um pouco mais seguros em relação a algumas "falhas" e inconvenientes que eles possuem. Dessa forma, podemos proteger um pouco mais o nosso site no que diz respeito aos ataques de "cross-site scripting" e de "xss" mencionados anteriormente.
+
+Como já foi dito, ao inserir sites de terceiros num iframe, pode ocorrer dessas páginas externas usarem o seu site para aplicarem técnicas de captura de informações do usuário... Uma das medidas de proteção que você pode fazer é justamente bloquear isso.
+
+PARÂMETROS DE SEGURANÇA EM IFRAMES:
+
+SANDBOX:
+
+Para executar esse bloqueio, é necessário inserir alguns parâmetros de segurança na tag do seu iframe. Tenha em mente que os ataques citados aqui, inicialmente dependem que o usuário envie seus dados a partir de um formulário... Dessa maneira, para os sites de terceiros inseridos no nosso iframe, devemos bloquear justamente essa função de envio de dados por formulários, neutralizando todas as ações que são potencialmente maliciosas nesses sites.
+
+Para fazer isso, na tag do iframe, usamos o parâmetro " sandbox "... O valor para esse parâmetro deve ser o " sandbox " (sim, o mesmo nome: sandbox recebe sandbox). 
+
+Ao inserirmos esse parâmetro com esse valor, ele bloqueia todo e qualquer acesso que outros sites (que estejam dentro do iframe) tentem fazer... Dessa maneira, no nosso iframe, os formulários desses sites não irão executar a ação de envio de dados... Mesmo que o usuário ainda consiga preencher os campos de formulário, ao clicar em "enviar", o comando simplesmente não é executado, não é aceito.
+
+Isso porque quando usamos essa configuração ( sandbox="sandbox" ) criamos uma "proteção" um pouco maior em relação a ataques, não estaremos mais capturando nenhum tipo de informação.
+
+Quando adicionamos o sandbox com o valor sandbox em nosso iframe, automaticamente o site que está dentro do quadro perde algumas funcionalidades, dentre elas: 
+
+- Não pode mais enviar dados de formulários 
+- Não pode mais executar scripts 
+- Desabilita todo tipo de API, janelas modais e popups
+- Desabilita todo tipo de plugin com <embed>, <object>, <applet>
+- Evita que o site dentro do iframe assuma a navegação top level do navegador 
+- Bloqueia recursos como autoplay e foco automático em elementos de formulário
+
+REFERRERPOLICY:
+
+Uma outra maneira de deixar o seu site um pouco mais seguro, é utilizando também o parâmetro " referrerpolicy ", que serve para configurar a política de referência. O valor padrão usado para esse parâmetro é o " no-referrer-when-downgrade ".
+
+Agora, se você quiser tornar aquilo que está carregado dentro do iframe um pouco mais limitado, ao invés de usar o valor padrão, é só usar o valor " no-referrer ".
+
+Sem entrar muito em termos técnicos, normalmente os sites conseguem monitorar nossos rastros de navegação através de um campo no cabeçalho http chamado Referer Header. Ele sempre indica onde o visitante estava quando decidiu ir para o seu site.
+
+Esse é um dos recursos que as redes sociais como Twitter, Facebook e Instagram e sites como Google e YouTube usam para capturar os seus dados de navegação e entender o seu padrão de navegação para mostrar propagandas. Mas não é só pra isso que serve...
+
+Acontece que, quando usamos essa configuração ( referrerpolicy="no-referrer" ), informamos que aquilo que está carregado dentro do iframe, NÃO vai coletar nenhum tipo de informação do usuário. O conteúdo que está dentro do iframe não vai poder capturar dados de ninguém, tonando o ambiente o mais anônimo possível. Conseguimos definir quantos dados serão compartilhados com o site de destino... Ou seja, com o valor "no-referrer", nenhum dado.
+
+Existem outros valores para o parâmetro referrerpolicy, como: 
+
+- no-referer-when-downgrade (valor padrão citado) 
+- origin 
+- origin-when-cross-origin 
+- same-origin 
+- strict-origin 
+- strict-origin-when-cross-origin
+- unsafe-url 
+
+Dessa forma, esses dois parâmetros de segurança (sandbox e referrerpolicy), com os valores orientados, irão ligar o máximo de segurança dentro de seu iframe... Isso é bastante recomendado.
+
+VALORES DE EXCEÇÃO PARA OS PARÂMETROS DE SEGURANÇA:
+
+Porém, vamos imaginar que em um caso muito específico, para o funcionamento correto da sua aplicação, você queira deixar com que os iframes executem o envio de dados através de formulários... Nesse caso, devemos abrir algumas exceções no parâmetro "sandbox", fazemos isso com valores que concedem certos tipos de autorizações específicas.
+
+Como sabemos, o parâmetro sandbox com o valor sandbox liga todas as configurações de segurança no máximo, aciona o máximo nível de segurança que ele consegue fazer.
+
+Entretanto, conseguimos abrir exceções e desligar algumas coisas. Segue alguns valores para o parâmetro " sandbox " que concedem autorizações de segurança específicas (exceções de segurança): 
+
+allow-same-origin: Para que formulários que estão em páginas do nosso próprio servidor (conteúdo local) passem a funcionar no iframe, podemos inserir o valor " allow-same-origin "... Dessa forma, uma exceção nas configurações de segurança é feita para os conteúdos de mesma origem (páginas do nosso próprio servidor passam a funcionar normalmente com permissão total, enquanto páginas de terceiros são "neutralizadas").
+
+allow-forms: Também podemos conceder uma exceção para permitir que todo e qualquer formulário passe a funcionar normalmente (não só de conteúdo local, mas de páginas de terceiros também). Para permitir isso, use o valor " allow-forms ".
+
+allow-scripts: O valor " allow-scripts " serve para abrirmos uma exceção na segurança para permitirmos scripts - Quando usamos especificamente o valor citado acima (allow-forms) temos também que usar justamente o "allow-scripts" em conjunto, visto que o HTML5 executa scripts quando roda formulários. Formulários necessitam de scripts para operar. Dependendo do site externo, é arriscado deixar scripts serem executados e ativos, isso se deve porque scripts podem ser maliciosos, então cuidado.
+
+Ob.: Referente aos valores de exceção para sandbox descritos acima, uma coisa que podemos fazer é colocar dois valores ou mais para o mesmo parâmetro sandbox... Basta separar os valores com um espaço e manter dentro das aspas, dessa forma várias exceções de segurança serão aplicadas ao mesmo tempo. EX: sandbox="allow-same-origin allow-forms allow-scripts"
+
+Atenção: Apesar de podermos abrir essas exceções de segurança, tudo aquilo que não foi especificado como exceção, continua ligado... Ou seja, fora aquilo que indicamos como exceção, todas as outras proteções continuam ativas e operando. A partir do momento que você abre o parâmetro sandbox com qualquer valor de exceção (ex: sandbox="allow-forms"), automaticamente todas as outras proteções são ativadas, bloqueando todo o resto.
+
+Nota: Fora esses valores de exceção de segurança para sandbox listados aqui, existem outros... Ao abrir o parâmetro "sandbox", dentro das aspas, você pode usar o atalho "Ctrl + espaço" e abrir uma lista com os outros valores. Esses valores permitem conceder outros tipos de autorizações de segurança específicas para os seus iframes. -->
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit provident corrupti consequuntur ipsa molestiae amet! Fuga veniam recusandae, rem maiores unde beatae aliquid ullam, deserunt perferendis iure asperiores nulla tempora?</p>
+    
+    <hr>
+
+    <h1>Outro exemplo</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta ratione quae doloremque saepe nesciunt consequuntur sed nihil ipsam corrupti repellendus deleniti inventore porro consequatur numquam eius, minus laudantium excepturi. Iure!</p>
+
+    <iframe src="paginas_extras/pagina005.html" frameborder="1" sandbox="allow-scripts"
+    referrerpolicy="no-referrer"></iframe>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repellat iusto voluptatibus tenetur? Dolores eveniet voluptatem ex reprehenderit eaque voluptatibus optio at, perspiciatis tempora eum voluptates veritatis id ut incidunt.</p>
+</body>
+</html>

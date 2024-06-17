@@ -1,0 +1,63 @@
+Os iframes são importantes e até essenciais em alguns casos, porém eles também possuem alguns inconvenientes e podem trazer alguns problemas para o seu site. É importante que você saiba quais são esses inconvenientes e a partir daí use os iframes somente se realmente tiver convicção, a certeza de que eles são necessários ou de que o recurso vale a pena.
+
+INCONVENIENTES DO IFRAME:
+
+MECANISMOS DE BUSCA:
+
+Mecanismos de busca, como o Google por exemplo, utilizam um robô indexador chamado "Googlebot", que vai encontrando sites e vai vasculhando esses sites... 
+
+Indexar significa: Dispor em índice, numa lista que metodicamente indica o conteúdo de alguma coisa; ordenar... Inserir um ou vários sites na base de dados de motores de pesquisa, fazendo com que eles apareçam como resultado para quem faz uma busca
+
+Uma página é indexada pelo Google quando ela é visitada pelo rastreador do Google (Googlebot), passa por uma análise de conteúdo e significado e, em seguida, é armazenada no índice do Google.
+
+A partir daí, de acordo com a relevância determinada por esse robô (Googlebot) e pelos algoritmos de indexação do Google, eles vão organizando os sites no campo de Resultados de Pesquisa numa ordem hierárquica de relevância.
+
+O campo de Resultados de Pesquisa pode ser dividido em duas áreas: 
+
+Área do Conteúdo Pago: Sites que estão no topo do campo de resultados porque pagaram para ter essa posição. 
+
+Área do Conteúdo Orgânico: Sites que estão entre os primeiros no campo de resultados porque fizeram por merecer, subiram na hierarquia de relevância do Google de forma orgânica. Sites que produziram conteúdo e o algoritmo do Google considerou que esse site teve uma ótima relevância em relação ao assunto abordado, sendo posicionado na frente por esse motivo.
+
+Mas como o Google identifica a relevância e decide quem será posicionado em cima e quem será posicionado embaixo? 
+
+Na hora que o Googlebot descobre um site, ele vai até esse site, analisa o conteúdo e decide se vale a pena posicionar mais acima ou mais abaixo no campo de resultados de pesquisa.
+
+O problema é que: Quando você usa iframes no seu site, segundo o próprio Google, existem alguns problemas para que o Googlebot entre no iframe e consiga analisar e indexar o conteúdo que está lá dentro. (esses problemas não significam impedição ou negação total, mas atrapalham) 
+
+É um problema de indexação e relacionamento de conteúdo pelos mecanismos de busca quando usamos o iframe. Não é uma regra, mas tecnicamente é possível que o conteúdo dentro do iframe tenha algum problema para indexação, e isso é ruim para alguns sites.
+
+Sendo assim, nunca monte um site inteiro com o uso de muitos iframes ou com dentro do iframe um conteúdo que é muito sensível para o seu site, que é altamente indexável.
+
+Inclusive existe uma nota da comunidade Google falando justamente sobre esse assunto, alertando sobre esse possível problema. Não é garantido que o Googlebot não entre nesses iframes, mas o Google avisa que pode ser que algum problema de indexação, de identificação do Googlebot, possa existir.
+
+Portanto, para colocar conteúdo muito importante, evite utilizar iframes.
+
+ACESSIBILIDADE:
+
+Acessibilidade serve como um facilitador para aquelas pessoas com algum tipo de necessidade especial. Pessoas cegas por exemplo, com a ajuda de softwares chamados " Leitores de Tela ", conseguem usar computadores.
+
+O problema é que os softwares leitores de tela também apresentam alguns problemas para conseguir acessar os iframes. Eles ficam meio perdidos ali, é bom que você fique ciente disso.
+
+USABILIDADE:
+
+E além dos problemas de acessibilidade, existem também os problemas de usabilidade, que são aqueles em que o próprio navegador acaba se confundindo... Ou até mesmo o próprio usuário acaba se confundindo.
+
+Por exemplo, quando acessamos um site de terceiro por um iframe, ao avançarmos para uma outra área desse site, caso queiramos voltar para a tela inicial, ao clicar no botão "voltar" do navegador, pode ser que alguns browsers não executem o comando de retorno para a página que está dentro do iframe, e sim para a página primária (aquela que contém o iframe). O navegador pode se confundir na hora de decidir se vai voltar dentro do iframe ou se vai voltar dentro do conteúdo principal. É um problema de usabilidade.
+
+Ainda sobre usabilidade, outro problema são os sites que possuem links que abrem com o "target _blank" (abrir em uma janela nova)... Se você inserir um site desses no seu iframe, e o usuário clicar em um desses links que abrem em uma nova janela, pode ser que alguns navegadores não consigam entender que a janela nova deve ser aberta na área do browser e não dentro do iframe.
+
+RESPONSIVIDADE:
+
+Se o site de terceiro que você inserir dentro do seu iframe não for responsivo, pode ser que a página apareça toda quebrada dentro do seu iframe... Inicialmente isso é problema de quem desenvolveu o site, entretanto a partir do momento que você adiciona esse site na sua página em forma de iframe, isso também se torna um problema seu, porque foi você quem escolheu adicionar esse site.
+
+SEGURANÇA:
+
+Ao inserir sites de terceiros nos seus iframes, isso acaba abrindo uma porta da sua página para outros sites. Então cuidado para quem você abre a porta... 
+
+Por exemplo, ao não tomar cuidado, existe o risco de você inserir no seu iframe um site de terceiro que foi invadido e que está usando técnicas de captura de informações do usuário... E a partir daí, o SEU SITE começa a fazer isso para esse outro site danoso, já que os seus usuários estarão acessando esse site invadido a partir do seu.
+
+Dessa forma, tome muito cuidado com os sites que você abre dentro de um iframe, dentro do seu próprio site... Isso é uma responsabilidade única e exclusivamente sua, do desenvolvedor do site. 
+
+Isso pode deixar o seu site aberto a utilizar técnicas de invasão, alguns ataques como por exemplo o " cross-site scripting " e ataques " xss "... Essa é mais uma limitação dos iframes.
+
+Em alguns casos de fato iremos precisar usar os iframes, só que não abuse do uso deles dentro do seu site. Nas ocasiões em que usamos iframes, utilizamos com as configurações de proteção ativadas, dando uma proteção um pouco maior do seu site em relação a outros iframes.

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de iframes</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #tela {
+            width: 95vw;
+            height: 400px;
+
+            border: 2px solid black;
+        }
+
+        /* NAVEGAÇÃO DE ARQUIVOS:
+
+Quando exibimos conteúdo de forma local pelo nosso iframe, às vezes é interessante criar uma pasta para armazenar justamente essas páginas extras que só existem para serem exibidas pelo iframe. 
+
+Por exemplo: Dentro do nosso servidor, podemos criar uma pasta chamada "paginas-extras" e armazenar todas as páginas que serão exibidas pelo iframe nessa pasta (lembre-se que ao armazenar as páginas em outra pasta, o endereço local no iframe deve ser atualizado adicionando o caminho da pasta). 
+
+IFRAME INTERATIVO:
+
+Quando você cria um iframe para exibir uma página de seu interesse, eventualmente você pode querer substituir essa página que está configurada no iframe por outra... Naturalmente, para alterar a página que está sendo exibida, você muda o endereço contido no parâmetro src do iframe.
+
+Entretanto, também é possível realizar essa transição de página de forma interativa, atribuindo essa ação para o próprio usuário.
+
+Por exemplo, considerando que você tenha uma página primária com um iframe dentro, e que também tenha mais três outras páginas secundárias: 
+
+Para fazer a transição interativa dessas três páginas no seu iframe, é necessário que você, lá na página primária, monte uma lista com os links das três páginas secundárias. Exemplo:
+
+- Primeira página
+- Segunda página
+- Terceira página
+
+A partir daí, queremos que quando o usuário clique em algum desses links, a respectiva página secundária seja renderizada no iframe (e não será necessário recarregar a página primária para que isso ocorra). 
+
+Para tal, na tag do iframe você precisa inserir o parâmetro " name ", e atribuir a ele uma nomenclatura (de sua preferência - ex: 'frame')
+
+Agora, para associarmos os nossos links de páginas secundárias ao iframe, devemos inserir na tag dos links (<a></a>) o parâmetro "target", tendo como valor justamente a nomenclatura do parâmetro "name" ('frame' no caso do nosso exemplo).
+
+Feito isso, ao clicarmos em algum link da lista, a respectiva página secundária será carregada no iframe. Dessa forma conseguimos criar um sistema de navegação numa página primária e interagir abrindo páginas secundárias dentro do iframe... E isso tudo apenas usando links com o target apontando para o "name" do nosso iframe (lembre-se que para fazer isso o parâmetro name é obrigatório - e esse name tem que ser exatamente o mesmo que usamos no target)  
+
+Nota: Inicialmente, quando a nossa página primária for carregada, o nosso iframe estará vazio... Isso se deve ao fato de que não especificamos nenhuma página dentro do parâmetro src dele. Se você quiser que inicialmente (antes de clicarmos em qualquer link da lista de páginas secundárias) o iframe seja carregado com alguma página, é só inserir o endereço no parâmetro src do iframe. 
+
+PARÂMETRO NAME:
+
+Sobre o parâmetro "name", de certa maneira ele serve para identificar um elemento, assim como o parâmetro "id" faz...
+
+De forma geral, pode-se dizer que o id é importante para o browser (front-end), para a manipulação do DOM (arvore do documento) e CSS; e o name é importante para o servidor (back-end).
+
+O name é principalmente usado para elementos de <form>, ou seja para campos de inserção de dados e é exatamente o name que identifica no servidor o campo. Quando o envio de um form é executado, os campos dele vão para o servidor num objeto cujas chaves são o name que esses elementos têm.
+
+E diferente do "id", pode haver mais do que um elemento com o mesmo "name"...
+
+Uma outra funcionalidade do parâmetro "name" é a seguinte: Ao invés de atualizar a página, fazer uma submissão de formulário para um iframe... Ainda que o action esteja apontando para outra página, a renderização da mesma se dará dentro do iframe. (usamos o name para isso nesse exercício)
+
+Mas como foi dito, geralmente o atributo name serve para representar uma coleção de valores, enviados através de um formulário, para o servidor... Algo um pouco mais avançado. */
+    </style>
+</head>
+<body>
+    <h1>Faça uma escolha</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam alias labore quos! Cum obcaecati repellat vero facilis facere? Sunt perspiciatis pariatur commodi quo, nesciunt mollitia tenetur vitae cumque ratione iste?</p>
+
+    <ul>
+        <li><a href="paginas_extras/pagina001.html" target="frame">Primeira página</a></li>
+        <li><a href="paginas_extras/pagina002.html" target="frame">Segunda página</a></li>
+        <li><a href="paginas_extras/pagina003.html" target="frame">terceira página</a></li>
+    </ul>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nostrum repellat eaque molestias corrupti, omnis accusamus blanditiis aut velit sint id veritatis modi alias hic, totam fugit odio. Atque, necessitatibus? Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, ut sed. In vero impedit magnam laboriosam voluptate vitae neque debitis. Neque reiciendis at quibusdam, ut deleniti numquam repellat minus itaque?</p>
+
+    <iframe srcdoc="<h1>Clique em alguma das opções acima</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis provident doloremque commodi repellendus molestias? Sapiente, debitis deserunt. Exercitationem suscipit eos at repellat, doloremque quis vero odio quidem laudantium sapiente a!</p>
+        <img src='../Ex003 - Imagens/Imagens/logo CSS3-200.png'>" id="tela" name="frame"><p style="font-weight: bold;">infelizmente seu navegador não é compativel com iframes.</p></iframe>
+
+        <!-- Inicialmente, quando a nossa página primária for carregada, o nosso iframe interativo estará vazio. Isso se deve ao fato de que não especificamos nenhuma página dentro do parâmetro src dele...
+
+O ideal seria que colocássemos algum conteúdo dentro dele para ser exibido de forma inicial, antes que alguma página secundária seja renderizada de forma interativa.
+
+Uma das maneiras de se fazer isso é você criar um arquivo separado e inserir o endereço desse arquivo no parâmetro src do iframe, funcionando como uma página padrão e inicial.
+
+Essa página inicial pode conter informações como: " Escolha um das opções acima (páginas secundárias) " e alguma imagem em forma de logo.
+
+Entretanto, para um iframe interativo, também é possível fazer essa "página inicial" com o parâmetro " srcdoc ". Esse parâmetro permite que adicionemos, como valor do parâmetro, especificações em HTML (h1, p, img e por aí vai). 
+
+Esse código HTML que inserirmos como valor de srcdoc será renderizado no nosso iframe interativo, funcionando justamente como uma página inicial.
+
+Quando você decide usar o parâmetro srcdoc, a primeira coisa a se fazer é deletar o parâmetro padrão "src", e aí sim inserir o srcdoc... Substituir o src pelo srcdoc. Posteriormente insira o seu código HTML como valor de srcdoc.
+
+Exemplo:
+
+<iframe srcdoc="<h1>Escolha uma das opções acima</h1> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente et atque aperiam</p> <img src='imagens\cursoemvideo-logo-branca.png'>" name="frame"><p>Infelizmente o seu navegador não é compatível com essa funcionalidade</p></iframe>
+
+Dessa maneira geramos uma página inicial de forma estática para o nosso iframe sem precisar criar um arquivo separado.
+
+Entretanto, o srcdoc tem a desvantagem que só podemos inserir um código básico em HTML, não dá pra fazer muita coisa além disso. Por isso a recomendação é que, caso você queira algo mais evoluído, fazer como foi dito anteriormente e criar um arquivo separado com o seu código HTML e inclusive CSS. Ao invés de criar um arquivo separado, você também pode inserir uma imagem como plano de fundo, background... É uma opção. -->
+</body>
+</html>

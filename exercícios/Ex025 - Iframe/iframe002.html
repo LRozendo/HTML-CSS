@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframes</title>
+
+    <style>
+        iframe {
+        display: block;
+        margin: auto;
+
+        width: 500px;
+        height: 500px;
+        }
+
+        /* No seu iframe, ao invés de carregar um conteúdo externo (sites de terceiros), você também pode carregar conteúdo local (uma página sua)... Dessa forma, não temos que nos preocupar com a questão do bloqueio/proteção que alguns sites tem em relação ao iframe, já que nesse caso estaremos trabalhando com conteúdo local.
+
+Para abrir uma página local dentro do seu iframe, é muito simples: Basta que você insira como valor do parâmetro "src" no iframe o endereço local da sua página.  
+
+Exemplo:
+
+<iframe src=" pag001.html " frameborder="0"></iframe>
+
+Dessa maneira você pode carregar páginas internas, do seu próprio servidor, dentro do seu iframe... Dito isso, podemos usar esse iframe com conteúdo local como uma forma de replicar o efeito da propriedade overflow (com barras de rolagem, tratar conteúdos que ultrapassam limites).
+
+Por exemplo, se você tem uma tabela grande que precisa ser responsiva, ao invés de utilizar a propriedade overflow, existe a possibilidade de mover essa tabela para uma outra página do seu servidor e exibi-la em forma de iframe na suposta página primária, limitando suas dimensões com barras de rolagem e tornando-a responsiva somente com o iframe - limitando a largura e altura desse iframe - (para centralizar um iframe utilize margin auto e display block).
+
+Atenção: Talvez você possa estar se perguntando se na hora de tornar uma tabela responsiva, deve usar o overflow ou a técnica do iframe citada aqui... A resposta é que, nesse caso (tabelas), é melhor você tornar responsivo com o overflow. Isso se deve ao fato de que existe um problema de indexação e relacionamento de conteúdo pelos mecanismos de busca quando usamos o iframe. 
+
+Como na maioria das vezes a nossa tabela possui um conteúdo relacionado com o conteúdo restante no site, e queremos uma associação entre esses conteúdos, é melhor tornar responsivo com o overflow... Já que com o iframe os mecanismos de busca não conseguiriam fazer esse relacionamento da forma adequada.
+
+Entretanto, uma das vantagens de exibir o seu conteúdo por meio de um iframe é que desse modo temos a praticidade de conseguir fazer com que as configurações de estilo sejam separadas do arquivo primário. Como sabemos, ao utilizar o iframe, é como se abríssemos a página dentro de uma nova aba, só que dentro desse frame... Permitindo assim justamente a separação dos arquivos de estilo.
+
+No caso da responsividade da tabela, de fato é melhor usar o overflow, mas se você vai inserir outros tipos de conteúdo que não sejam tabela, vale a pena considerar a opção dos iframes.
+
+Nota: Aprendemos a colocar conteúdo local em iframes, mais adiante iremos aprender também a manusear arquivos (páginas locais) que estão numa posição diferente dentro do nosso servidor... E como fazer ligações externas entre um documento e outro. */
+    </style>
+</head>
+<body>
+    <h1>Teste com Iframe</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolores tempore atque velit, similique quidem nobis voluptas maxime necessitatibus quae recusandae eligendi voluptatum, voluptate autem, quo deserunt repellat qui natus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam sequi, fugit itaque pariatur voluptates ab quisquam officia obcaecati placeat, labore nihil, rerum at doloremque! Est minus consectetur minima veniam.</p>
+
+    <iframe src="paginas_extras/pagina001.html" frameborder="0"><a href="pagina001.html">Página001</a></iframe>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur ab quibusdam cumque harum unde, repellendus ducimus ratione amet nihil molestiae voluptas, incidunt ut fuga voluptatem eaque nulla reiciendis non Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga debitis aliquam quo! Velit asperiores tenetur vel ipsa similique ab! Nam aliquam, quo voluptatem beatae repellendus quasi id tenetur aliquid odit!</p>
+</body>
+</html>
