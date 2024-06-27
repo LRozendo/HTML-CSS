@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <!-- pattern:
+
+O atributo pattern especifica uma Expressão Regular para validar o conteúdo de um campo input. Dessa forma, para que a submissão do form seja executada, o valor do controle de formulário deve corresponder ao padrão especificado na expressão regular (pattern).
+
+Mas o que é uma expressão regular? Expressões Regulares ou Regular Expressions (RegEx) se tratam de uma forma de notação - sistema de representação gráfica - usado para especificar um padrão de texto que faz verificações em conteúdos textuais... De forma resumida, essas verificações textuais possuem três principais aplicações: 
+
+1 - Efetuar buscas:
+
+Não se trata de uma simples busca por palavras como estamos acostumados. Com o RegEx, você pode buscar por PADRÕES que definem qual é o formato esperado do termo que está sendo procurado. Por exemplo: Num texto qualquer, buscar todos os termos que tenham um formato de data (dd/mm/aaaa) SEM SABER EXATAMENTE QUAL É A DATA QUE ESTAMOS PROCURANDO.
+
+2 - Validações em texto:
+
+Com o RegEx podemos fazer validações em texto, ou seja, verificar se determinada sequência de caracteres atende ao PADRÃO estabelecido (o atributo "pattern" usa essa aplicação na sua validação por RegEx).
+
+3 - Fazer substituições:
+
+No contexto de Expressão Regular, as substituições vão muito além de simplesmente substituir texto por texto, pois no RegEx há um recurso em que é possível extrair apenas uma parte de um padrão para utilizá-lo no destino. Portando, se trata se uma substituição que tem como base um padrão, bem como partes desses padrões também.
+
+As aplicações do RegEx descritas acima podem ser executadas em qualquer sequência de caracteres, seja para um parágrafo de um livro, um texto estruturado ou até mesmo o próprio conteúdo de um código. (o atributo pattern no HTML5 utiliza para validar o conteúdo do input - Validação em texto)
+
+Várias ferramentas tem suporte para expressões regulares. A maioria dos ambientes de desenvolvimento (como o VSC por exemplo) também suportam RegEx nativamente, seja para buscar arquivos ou conteúdo dentro dos arquivos. Além de usar RegEx dentro de ferramentas, também é possível utilizá-lo em softwares usando linguagens de programação. Praticamente qualquer linguagem de programação suporta expressões regulares. 
+
+Importante: A estrutura de expressões regulares é escrita em uma linguagem formal única baseada na teoria de linguagens formais, que descrevem um conjunto de cadeia de caracteres e regras (Entende-se por linguagem formal estudo de modelos matemáticos que possibilitam a especificação e o reconhecimento de linguagens).
+
+No entanto, a implementação dessa estrutura (RegEx) pode variar de linguagem para linguagem. Isso significa que, dependendo da linguagem de desenvolvimento utilizada, o jeito de estruturar um padrão RegEx em termos de sintaxe e recursos pode mudar.
+
+Na prática, como fazemos para definir padrões com o RegEx no atributo pattern do HTML?
+
+Toda expressão regular no pattern deve começar com o marcador " ^ " e terminar com o marcador " $ " (Esses marcadores de início e fim são chamados de âncoras).
+
+De forma resumida, para definir padrões, as expressões regulares trabalham com algumas estruturas como: Classes de caracteres, Intervalos, Âncoras, Constructos de agrupamento e entre muitas outras estruturas...
+
+Segue um exemplo de uso dessas estruturas mencionadas para especificar um padrão validador simples para números de telefone (inclusive telefone celular - xxxxx-xxxx)... Usaremos:
+
+Classes de caracteres: Como estamos validando um telefone, precisamos especificar que só iremos aceitar caracteres numéricos (especificar uma classe de caractere). Para definir essa classe, abrimos e fechamos colchetes " [] " e dentro deles, definimos a classe desejada. Fica assim nesse caso: [0-9] - Dessa forma, estamos dizendo que só aceitamos números entre " 0 e 9 ".
+
+Intervalo: Agora que determinamos a classe, temos que dizer quantos números iremos aceitar (intervalo) antes do traço " - ". Para definir esse intervalo, abrimos e fechamos chaves " {} " e dentro delas, definimos o intervalo desejado. Fica assim: {4,5} - Dessa maneira, estamos dizendo que só aceitamos a entrada de " 4 a 5 " caracteres (5 para o caso dos celulares). 
+
+Agora, ainda no código da expressão regular, basta inserir um traço " - " depois do intervalo e especificar novamente uma classe numérica... Logo em seguida defina um outro intervalo, mas dessa vez apenas para quatro caracteres.
+
+O resultado final fica assim: ^[0-9]{4,5}-[0-9]{4}$
+
+No caso do nosso exemplo, criamos um padrão validador simples para números de telefone, entretanto é possível criar padrões com Expressões Regulares para todo tipo de dado, como por exemplo: Data, hora, endereço de IP, e-mail, URL, CPF, RG, cartão de crédito e por aí vai... Na internet também é possível encontrar esses padrões RegEx já montados, restando o trabalho de só copiar e colar nesses casos.
+
+O atributo "pattern" é válido para os inputs do tipo text, password, tel, number, date, month, time, email e mais alguns outros... 
+
+Importante: Apesar desses padrões por RegEx no pattern aumentarem o nível de validação dos nossos campos de entrada, nenhum deles é suficiente para conseguir bloquear totalmente alguns tipos de dados inseridos da forma errada... Você pode usar o pattern, mas tenha em mente que essa validação de fato tem que ser feita usando uma linguagem de programação, como JS ou PHP por exemplo. 
+
+Conclusão:
+
+O atributo pattern, quando especificado, é uma expressão regular à qual o valor da entrada na caixa input deve corresponder para que o "value" passe na validação de restrição.
+
+Se o valor do componente de entrada não estiver em conformidade com as restrições definidas pelo valor de pattern (a expressão regular definida), a submissão do formulário não será executada. -->
+</head>
+<body>
+    <h1>Exemplo de formulário</h1>
+    <form action="cadastro.php">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <p>
+                <label for="inome">Nome</label>
+                <input type="text" name="nome" id="inome" autocomplete="name">
+            </p>
+            <p>
+                <label for="iemail">E-mail:</label>
+                <input type="email" name="emiail" id="iemail" required autocomplete="email">
+            </p>
+            <p>
+                <label for="itelefone">Número de telefone:</label>
+                <input type="tel" name="telefone" id="itelefone" placeholder="(xx) xxxx-xxxx" required pattern="^([(][0-9]{2}[)])\s([0-9]{4})[-]([0-9]{4})$">
+            </p>
+        </fieldset>
+        <p>
+            <input type="submit" value="Envair">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+</body>
+</html>

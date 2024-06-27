@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h1>Teste de formulário</h1>
+    <form action="cadastro.php" method="get" autocomplete="on"> <!-- autocomplete usado em <form> tem apenas 2 atributos -->
+        <p><label for="iusu">Usuário:</label> <input type="text" name="usu" id="iusu" minlength="5" maxlength="20" required size="20" placeholder="Nome do usuário" autocomplete="username"></p> <!-- autocomplete em input tem diversos atributos usados para especificar ao navegador que tipo de dados ele deve sugerir -->
+        
+        <!-- Min/Maxlength - Usado para definir a quantidade maxima ou minima de digitos.
+         
+             Placeholder - Usado para colocar algum conteúdo, normalmente servindo como uma dica ao usuario, sem impactar diretamente no input.
+        -->
+        
+        <p><label for="isen">Senha:</label> <input type="password" name="senha" id="isen" required minlength="4" maxlength="16" size="16" placeholder="Min de 8 digitos" autocomplete="current-password"></p> <!-- Password - Atributo usado para ocultar o texto inserido utilizando pontos
+             Required - Elemento utilizado para requisitar obrigatoriamente um input
+
+             Size - Determina o tamanho de uma caixa de acordo com a quantidade de digitos que podem ser mostrados. Se o número de digitos ultrapassar o tamanho da caixa ele não sumirá, apenas será criado uma rolagem para mostrar todo o conteúdo.
+        -->
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
+         <!-- Reset - Atriputo usado para formar um botão com a finalizade de limpar o que foi escrito. -->
+    </form>
+</body>
+</html>

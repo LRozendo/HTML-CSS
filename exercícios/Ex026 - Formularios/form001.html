@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* CRIANDO UM FORMULÁRIO SIMPLES:
+
+Da maneira mais essencial e simples possível:
+
+1 - ) Para criar um formulário HTML, usamos a tag " <form></form> ". Essa tag tem a função de DELIMITAR o nosso formulário. Tudo aquilo que estiver dentro desse par de tags será considerado como conteúdo do formulário. 
+	
+Na hora que o usuário clicar em "enviar", basicamente o sistema vai encapsular toda informação que estiver dentro desse par de tags, independentemente de quantos campos forem, e mandar para o servidor. (Existem alguns atributos/parâmetros que são importantíssimos para essa tag, mais adiante iremos nos aprofundar nisso)
+
+2 - ) Posteriormente, ainda dentro dessa tag <form>, abrimos a tag " <label></label> " (prefixo). Essa tag serve para determinar uma ETIQUETA para algum componente de entrada do formulário (etiqueta de uma caixa de texto por exemplo). Dentro dessa tag, você deve escrever o título da sua etiqueta. Exemplo: "<label>Nome:</label>" - (Também existem alguns atributos/parâmetros para essa tag, mais adiante iremos nos aprofundar nisso) 
+
+3 - ) Logo em seguida, embaixo da tag <label> que adicionamos, abrimos a tag " <input> ". Essa tag serve para adicionarmos um COMPONENTE (objeto de entrada que vai receber os dados do usuário). Como foi dito anteriormente, para formulários existem componentes de entrada de vários tipos... Quando você abrir a sua tag input, será necessário escolher o tipo de componente que ela será (o tipo de componente do input fica especificado no atributo 'type'). 
+
+Como na nossa label/etiqueta estamos solicitando o nome do usuário, devemos escolher o input do tipo "text", que seria uma caixa de texto básica. Obs.: Na maioria dos tipos de input é necessário ter os atributos "name" e "id"... Ao inserir o componente input, por padrão esses dois atributos já acompanham a tag de input (como no caso da nossa caixa de texto básica). Você pode dar a mesma nomenclatura para ambos se quiser.
+	
+4 - ) O formulário do nosso exemplo também precisa de um botão "Enviar", esse botão possui a função de iniciar a ação de submissão (envio) dos dados preenchidos nos campos. Ele também é um componente e portanto iremos precisar abrir outro input, mas dessa vez do tipo "submit" (submeter/enviar). Ao abrir esse tipo de input, por padrão o atributo "value" já vem acompanhando a tag, dentro desse atributo você deve escrever o rótulo do botão ("Enviar").
+
+Importante: Do jeito que o formulário foi descrito no nosso exemplo, não existe uma ligação entre a nossa label e a caixa de texto básica. É muito importante que exista um vínculo entre a label e o seu respectivo componente... Isso é essencial para que os mecanismos de busca, ou até mesmo o seu navegador, saibam que existe uma ligação entre determinada etiqueta e o seu respectivo componente de entrada. Mais adiante iremos aprender a fazer essas configurações extras de vínculo, tornando o nosso formulário mais útil. */
+
+/* Quando vamos preencher um formulário, ao clicarmos em determinadas caixas de texto é possível que o navegador do usuário auxilie da digitação dos dados com o a ferramenta "autocomplete" (preenchimento automático do campo). Quando essa ferramenta é ativada, uma janela com sugestões é exibida para que o usuário possa escolher algum dado... Acontece que em algumas situações pode ser que o autocomplete atrapalhe na visibilidade dos campos, poluindo o nosso formulário.
+
+Nesses casos, se você quiser é possível desligar o autocomplete... Para fazer isso, dentro da tag de abertura do formulário (<form>), basta adicionar o parâmetro " autocomplete " com o valor "off".
+ */
+    </style>
+</head>
+<body>
+    <h1>Meu primeiro formulário (simples)</h1>
+
+    <form autocomplete="off"> <!-- Desliga o completar automaticamente do navegador -->
+        <p>Nome: <input type="text" name="nome" id="nome"></p>
+        <p>Sobrenome: <input type="text" name="Sobrenome" id="Sobrenome"></p>
+        <p><input type="submit" value="Enviar"></p>
+    </form>
+</body>
+</html>

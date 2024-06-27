@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h1>Exemplo de formulário</h1>
+
+    <!-- O <output></output> se trata de um elemento de saída, utilizado somente para fins de exibição. É um elemento no qual um processo programado pode injetar os resultados de um cálculo ou o resultado de uma ação do usuário por exemplo.
+
+Por ser um elemento de saída, isso significa que: Quando utilizado, a tag de formulário output deve estar associada a um script. O resultado gerado por esse script, como um número por exemplo, deve ser renderizado no elemento output.
+
+Segue um exemplo de código HTML usando o output (contém um script simples também):
+
+<form action="cadastro.php" method="get">
+    <fieldset>
+        <legend>Teste - output</legend>
+
+        <label for="n1">Digite o primeiro número:</label>
+        <input type="number" name="n1" id="n1" required oninput="resultado.innerHTML 
+        = Number(n1.value) + Number(n2.value)">
+
+        <label for="n2">Digite o segundo número:</label>
+        <input type="number" name="n2" id="n2" required oninput="resultado.innerHTML 
+        = Number(n1.value) + Number(n2.value)">
+
+        <label for="resultado">Resultado da soma:</label>
+        <output for="n1 n2" id="resultado"></output>
+
+        <div>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </div>
+    </fieldset>
+</form>
+
+No exemplo de código acima, nós criamos um sistema simples que tem como função somar os números introduzidos no primeiro e no segundo campo, sendo que o resultado dessa soma é exibido no elemento output.
+
+Nesse exemplo, nós temos dois elementos de entrada para números (inputs tipo number) e logo abaixo deles há uma tag de formulário "output". Basicamente, dentro dos inputs que recebem os números, temos o atributo "oninput" com um script em JS que faz esse cálculo de somatória e exibe o resultado no elemento de saída output (os scripts são idênticos em ambos os atributos oninput dos campos). 
+
+Nota: De forma resumida, o atributo "oninput" contido nas caixas de entrada numéricas é utilizado para executar uma ação quando o usuário digita algo no controle ou altera o valor do campo. Nesse caso, o nosso script de soma está contido nesses atributos como valor deles... Dessa forma, qualquer alteração nos campos numéricos fará a ação do script de soma ser disparada. Lembre-se que o intuito aqui não é explicar como o código do script funciona, e sim mostrar como o elemento output trabalha. 
+
+Observe no exemplo que foi atribuído ao elemento de saída (output) um id nomeado como "resultado". Já no script, foi especificado que o número resultante da somatória seria exibido nesse output... Só foi possível fazer isso porque o output foi justamente identificado com esse id. 
+
+Dessa forma, sempre que você usar o elemento output, é indicado configurá-lo com um "id" ou "name"... Mas quando usar id ou name no output?  
+
+Atribuir um id ou name para o elemento <output> é útil quando você quer acessá-lo usando JavaScript (ou outra linguagem) para atualizar seu valor. Se você quiser acessar um elemento <output> específico usando JavaScript, é geralmente mais fácil e mais eficiente fazê-lo pelo seu id. 
+
+Por outro lado, se você quiser acessar vários elementos <output> que compartilham o mesmo atributo name (sendo que no id não existe essa possibilidade visto que ele é único), pode ser mais fácil fazê-lo pelo name.
+
+Portanto, se o seu script trabalha utilizando apenas um elemento output, use o id para identificá-lo... Já se esse script trabalha usando vários componentes output ao mesmo tempo, opte pelo name. (Também não é problema usar o id e o name ao mesmo tempo em um output, tudo vai depender da necessidade da sua aplicação).
+
+Perceba que no nosso exemplo o output também possui uma label... Não é algo obrigatório, mas é perfeitamente possível e recomendado atribuir uma label a um output, visto que ele é considerado um elemento "rotulável"... Sendo que podemos estabelecer o vínculo entre a label e o componente output normalmente também.
+
+Atenção: Em componentes de entrada para formulários (inputs) usamos o name e id para identificar o campo no servidor, criar vínculos com labels e etc... Já no elemento output, nós só usamos esses atributos de identificação para conseguir associar o elemento de saída com um script (com labels também no caso dos id's), e não para enviar dados identificados para o back-end. 
+
+Isso se deve porque o valor do elemento <output> NÃO é enviado para o servidor quando um formulário é enviado/submetido. É possível enviar para o servidor aquilo que é renderizado no elemento de saída output, mas fazemos isso com configurações adicionais no script e utilizando um outro elemento input especial que é feito para isso e fica oculto (hidden). 
+
+Obs.: O elemento <output> é uma opção para exibir o resultado de um cálculo ou ação do usuário, mas não é a única opção. Você poderia usar outros elementos HTML para exibir o resultado de um script, como por exemplo: <div>, <span> ou <p>... A escolha do elemento apropriado depende do contexto e do design do seu site ou aplicativo. Porém, usando o elemento output, deixamos o nosso código HTML com o máximo de semântica possível.
+
+Atributos da tag de formulário output:
+
+for:
+
+O atributo "for" aplicado no elemento <output> especifica a relação entre o resultado do cálculo (ou o resultado de uma ação do usuário) e os ELEMENTOS USADOS nesse cálculo.  
+
+O valor do atributo "for" deve ser uma lista de "id's" dos elementos usados no cálculo separados por espaços, indicando que esses elementos contribuíram com valores de entrada para (ou de outra forma afetaram) o cálculo.
+
+Portando, quando você estiver trabalhando com o elemento de saída <output>, use o atributo "for" para indicar quais são os componentes de entrada envolvidos no resultado que está sendo renderizado dentro dele.
+
+Observe que o atributo "for" no elemento <output> tem uma função puramente semântica e não afeta o comportamento do elemento <output>. Você pode omiti-lo se quiser, mas incluí-lo pode tornar seu código mais fácil de entender.
+
+Especificar a relação entre o resultado do cálculo e os elementos usados no cálculo ajuda a tornar o código mais legível e autoexplicativo... Assim como foi feito no nosso exemplo ( for="n1 n2" ). -->
+
+    <form action="cadastro.php" method="get" autocomplete="on">
+        <p>
+            <label for="in1">Número 1:</label>
+            <input type="number" name="n1" id="in1" min="0" max="50" required oninput="isoma.innerHTML = Number(in1.value) + Number(in2.value)">
+            
+        </p>
+
+        <p>
+            <label for="in2">Número 2:</label>
+            <input type="number" name="n2" id="in2" min="0" max="50" required oninput="isoma.innerHTML = Number(in1.value) + Number(in2.value)">
+            
+        </p>
+
+        <p>
+            <label for="isoma">Soma:</label>
+            <output id="isoma">0</output>
+        </p>
+
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+</body>
+</html>

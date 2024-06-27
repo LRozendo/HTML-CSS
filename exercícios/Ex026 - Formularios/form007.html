@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h1>Exemplo de formulário</h1>
+
+    <form action="cadastro.php" method="post" autocomplete="on">
+        <p>
+            <label for="icor">Cor:</label>
+            <input type="color" name="cor" id="icor" value="#00ff00">
+
+        </p>
+
+        <p>
+            <label for="inivel">Nível de satisfação</label>
+
+            <input type="range" name="nivel" id="inivel" value="0" min="1" max="100">
+        </p>
+
+        <p>
+            <label for="ifoto">Foto de perfil</label>
+            <input type="file" name="foto" id="ifoto">
+        </p>
+
+        <!-- file:
+
+O input do tipo file permite que o usuário escolha um arquivo do armazenamento do dispositivo e envie esse arquivo através de um formulário HTML, sendo que o elemento é mostrado como um botão que possui uma espécie de "nota de status" ao seu lado... Essa nota faz referência ao arquivo anexado. 
+
+Dessa forma, quando seus usuários precisarem fazer upload de alguma coisa para o seu sistema, trabalhe com o input file.
+
+Depois de escolhido, o arquivo é enviado para o servidor quando a submissão do é executada (para enviar arquivos, lembre-se que sempre usamos o método post, sendo que o back-end também precisa ser configurado corretamente para fazer o tratamento dos arquivos recebidos).
+
+O input file aceita a entrada de qualquer tipo de arquivo, como por exemplo: Imagens, áudios, vídeos, documentos do word, PDF's e por aí vai... 
+
+Importante: Pode parecer estranho, mas apenas com o input do tipo file, o arquivo anexado pelo usuário não será enviado para o back-end da forma correta e o servidor não será capaz de interpretar os DADOS DO ARQUIVO corretamente. Para que de fato o servidor receba da forma correta esse arquivo enviado pelo formulário, é necessário que façamos uso do atribulo " enctype " (logo abaixo uma explicação sobre esse atributo).
+
+Atributos próprios do input file:
+
+enctype:
+
+O atributo enctype especifica COMO os dados do formulário devem ser CODIFICADOS ao enviá-los para o servidor. Atenção: não é ele que faz o envio dos dados, ele apenas determina a forma de codificação desses dados. O protocolo HTTP que é usado para enviar os dados do formulário do cliente para o servidor, mas o atributo enctype especifica como os dados do formulário devem ser codificados antes de serem enviados.
+
+A codificação é o processo de converter os dados em um formato específico antes de enviá-los para o servidor (servidor = software escrito em alguma linguagem de programação que está executando no server e que recebe e processa os dados do formulário enviados pelo cliente). Essa codificação é feita para garantir que os dados sejam transmitidos corretamente e possam ser interpretados pelo servidor. 
+
+Basicamente, essa codificação é importante porque um ARQUIVO é composto por DADOS BINÁRIOS, que para serem interpretados adequadamente pelo server, precisam ser codificados em um formato específico antes de serem enviados. Todos os arquivos são armazenados como dados binários em um computador ou dispositivo de armazenamento. Isso inclui arquivos de imagens, texto, áudio, vídeo e outros tipos de arquivos. Dados binários são dados que não são representados como texto, mas sim como uma sequência de bytes que representam o conteúdo do arquivo. 
+
+Por exemplo, um arquivo de imagem é armazenado como uma sequência de bytes (dados binários) que representam as cores dos pixels. Já um arquivo de texto é armazenado como uma sequência de bytes, onde cada byte representa um caractere. Quando um arquivo é lido por um programa, os dados binários são interpretados de acordo com o formato do arquivo para exibir o conteúdo ao usuário.
+
+Quando os dados binários são transmitidos através de uma rede, eles são enviados como uma sequência de bytes. Portanto, os bytes são a unidade básica de informação usada para armazenar e transmitir dados binários.
+
+O atributo enctype, configurado da forma correta, é usado para codificar os dados binários do arquivo de uma maneira que permite que eles sejam transmitidos junto com os outros dados do formulário de forma individual e possam ser interpretados corretamente pelo servidor. Isso é importante porque os dados binários podem conter bytes que não são representáveis como texto ou que têm um significado especial em texto, necessitando desse processamento extra para o formato correto antes do envio. Dessa forma, se o seu form vai enviar um arquivo, o uso do atributo enctype configurado da forma adequada é obrigatório.
+
+Como usar o atributo enctype?
+
+O atributo enctype deve ser inserido dentro da tag de abertura do formulário (<form>), sendo que ele só pode ser usado se o método de envio dos dados for "post". Isso ocorre porque o método get envia os dados do formulário na URL, pelo cabeçalho da mensagem HTTP e não suporta o envio de dados binários, como arquivos. 
+
+O atributo enctype aceita três possíveis valores, que são:
+
+application/x-www-form-urlencoded - Esse é o valor padrão do atributo enctype, se não especificarmos nada, é esse valor que vai prevalecer. Ele codifica todos os caracteres antes de enviá-los 
+(espaços são convertidos em símbolos “+” e caracteres especiais são convertidos em valores ASCII HEX - 
+sequência de caracteres que começa com um sinal de porcentagem % seguido por dois dígitos hexadecimais)... Ou seja, é um valor que só estabelece uma codificação para os dados em forma de caracteres, mas não para arquivos. Ele não é adequado para enviar arquivos. 
+
+Nota: Como já foi dito, para utilizar o atributo enctype, o método de envio dos dados do formulário precisa ser "post". Entretanto, formulários configurados com o método get utilizam por padrão a forma de codificação "application/x-www-form-urlencoded" no envio... A questão aqui é que em formulários do tipo get, não podemos alterar essa forma de codificação padrão. Por isso que o atributo enctype só é válido para formulários tipo post (ao tentar usar enctype em formulários get, o atributo é simplesmente ignorado pelo sistema).
+
+multipart/form-data - No caso dos arquivos, esse valor é o mais importante. Ele é obrigatoriamente necessário se o seu formulário for enviar um arquivo, visto que ele tem a função de CODIFICAR os dados do arquivo de modo que o servidor possa receber e interpretar corretamente. 
+
+Se o formulário da sua página vai enviar um arquivo, a configuração desse formulário com o atributo "enctype" com o valor "multipart/form-data" é obrigatória, visto que ele faz justamente esse processamento adicional. Caso essa configuração seja negligenciada (enctype="multipart/form-data"), o back-end simplesmente irá negar o arquivo, já que não conseguirá fazer uma interpretação correta do mesmo. 
+
+Quando usamos o valor "multipart/form-data", os dados do formulário são codificados de uma maneira diferente. Cada campo do formulário, incluindo os campos de arquivo, é enviado como uma parte separada da mensagem, com um cabeçalho que especifica o nome do campo e o tipo de conteúdo (sendo que o conteúdo vai pelo corpo). O dado de cada campo é enviado de forma individual. Isso permite que os dados binários dos arquivos sejam enviados junto com os outros dados do formulário. Cada campo do formulário é enviado como uma parte separada da mensagem.
+
+text/plain - Com esse valor, o formulário envia os dados sem qualquer codificação. Esse valor é raramente usado. Quando usado, serve para fazer depuração ou testes (o uso desse valor pode resultar em problemas de interpretação dos dados pelo servidor e implicações na segurança).
+
+ -->
+
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+</body>
+</html>

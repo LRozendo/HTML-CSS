@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+
+    <!-- TIPOS DE INPUT PARA FORMULÁRIOS:
+
+number:
+
+O input do tipo number cria uma caixa para que o usuário possa digitar números... Letras não são aceitas nesse input. O elemento é mostrado como uma caixa de edição de uma linha que só aceita a entrada de números (ela também aceita a entrada dos caracteres "sinal de menos e mais", "vírgula" e "ponto")... 
+
+A caixa desse input também possui "botões giratórios" (setas de passo para cima e para baixo) que permitem que o usuário aumente ou diminua o valor numérico usando o mouse. A forma com que esses botões são exibidos depende também do navegador do usuário, pode variar entre os navegadores.
+
+Obs.: No caso das dicas por placeholder, elas aparecem normalmente na caixa desse input, mesmo que seja uma frase (letras).
+
+month:
+
+O input do tipo month cria uma caixa que permite que o usuário insira um mês e um ano. O elemento é mostrado como uma caixa de edição de uma linha que aceita um mês e um ano.
+
+A caixa desse input também possui um pequeno menu, que pode ser aberto e permiti escolher o mês e o ano com o mouse através de uma interface com botões giratórios e um calendário. A forma com que esse menu é exibido depende também do navegador do usuário, pode variar entre os navegadores.
+
+Obs.: Quando o dado desse tipo de input é enviado para o servidor, sua sintaxe (sintaxe = forma como é escrito) é a seguinte: yyyy-mm 
+
+date:
+
+O input do tipo date cria uma caixa que permite que o usuário insira um dia, mês e ano... Uma data completa. O elemento é mostrado como uma caixa de edição de uma linha que aceita um dia, mês e ano.
+
+A caixa desse input também possui um pequeno menu, que pode ser aberto e permiti escolher o dia/mês/ano com o mouse através de uma interface com botões giratórios e um calendário. A forma com que esse menu é exibido depende também do navegador do usuário, pode variar entre os navegadores.
+
+Obs.: Quando o dado desse tipo de input é enviado para o servidor, sua sintaxe (sintaxe = forma como é escrito) é a seguinte: yyyy-mm-dd
+
+time:
+
+O input do tipo time cria uma caixa que permite que o usuário insira uma hora. O elemento é mostrado como uma caixa de edição de uma linha que aceita horas e minutos (opcionalmente segundos).
+
+A caixa desse input também possui um pequeno menu, que pode ser aberto e permiti escolher a hora e o minuto com o mouse através de uma interface com botões giratórios. A forma com que esse menu é exibido depende também do navegador do usuário, pode variar entre os navegadores.
+
+Obs.: Quando o dado desse tipo de input é enviado para o servidor, sua sintaxe (sintaxe = forma como é escrito) é a seguinte: hh:mm
+
+ATRIBUTOS PRÓPRIOS MAIS USADOS PARA OS INPUTS DESCRITOS ACIMA:
+
+Tenha em mente que nem todo atributo funciona em todos os componentes de entrada (inputs), por isso é importante que você sempre vá treinando e testando conforme a sua necessidade.
+
+min:
+
+Você pode usar esse atributo para estabelecer um valor mínimo que é aceitável e válido para o respectivo input. Por exemplo: Usar o atributo min com o valor 8 (min="8") no input number, especificando que o conteúdo numérico deva ter um valor mínimo igual a 8. Dessa forma, o usuário não poderá executar a submissão do formulário até inserir um número que atenda essa condição (que seja igual ou maior que 8). Obs.: Caso o user insira um conteúdo com um valor menor do que o determinado, um pequeno balão embaixo do campo alertando o valor mínimo aceito aparece.
+
+Nota: Não confunda o atributo "minlength" com o "min". O atributo minlength serve para literalmente estabelecer um tamanho mínimo aceitável em quantidade de caracteres para o conteúdo de um input. Já o atributo min serve para estabelecer um valor mínimo aceitável no que se refere ao valor do conteúdo propriamente dito.
+
+O atributo "min" é válido para os inputs do tipo number, date, month, time e mais alguns outros (serve para inputs numéricos de forma geral)... 
+
+Para cara um desses inputs, a sintaxe do VALOR do atributo muda (sintaxe = forma como é escrito). Segue um exemplo:
+
+Sintaxe do VALOR do atributo "min" para um input do tipo date: yyyy-mm-dd
+Sintaxe do VALOR do atributo "min" para um input do tipo month: yyyy-mm
+Sintaxe do VALOR do atributo "min" para um input do tipo time: hh:mm
+Sintaxe do VALOR do atributo "min" para um input do tipo number: número mínimo
+
+Ao usar o atributo min, certifique-se de que esse requisito mínimo seja compreendido pelo usuário. Fornecer instruções no <label> ou pelo placeholder pode ser suficiente.
+
+max:
+
+Você pode usar esse atributo para estabelecer um valor máximo que é aceitável e válido para o respectivo input. Por exemplo: Usar o atributo max com o valor 15 (max="15") no input number, 
+especificando que o conteúdo numérico deva ter um valor de no máximo 15. Dessa forma, o usuário não poderá executar a submissão do formulário até inserir um número que atenda essa condição (que possua um valor de no máximo 15). Obs.: Caso o user insira um conteúdo com um valor maior do que o determinado, um pequeno balão embaixo do campo alertando o valor máximo aceito aparece.
+
+Nota: Não confunda o atributo "maxlength" com o "max". O atributo maxlength serve para literalmente estabelecer um tamanho máximo aceitável em quantidade de caracteres para o conteúdo de um input. Já o atributo max serve para estabelecer um valor máximo aceitável no que se refere ao valor do conteúdo propriamente dito.
+
+O atributo "max" é válido para os inputs do tipo number, date, month, time e mais alguns outros (serve para inputs numéricos de forma geral)... 
+
+Para cara um desses inputs, a sintaxe do VALOR do atributo muda (sintaxe = forma como é escrito). Segue um exemplo:
+
+Sintaxe do VALOR do atributo "max" para um input do tipo date: yyyy-mm-dd
+Sintaxe do VALOR do atributo "max" para um input do tipo month: yyyy-mm
+Sintaxe do VALOR do atributo "max" para um input do tipo time: hh:mm
+Sintaxe do VALOR do atributo "max" para um input do tipo number: número máximo
+
+Ao usar o atributo max, certifique-se de que esse requisito máximo seja compreendido pelo usuário. Fornecer instruções no <label> ou pelo placeholder pode ser suficiente.
+
+step:
+
+O atributo step é um número que especifica a granularidade (intervalo em unidades) à qual o valor de uma caixa input deve aderir. A step define o INTERVALO de passo ao clicar nos "botões giratórios" para cima e para baixo, ao mover um controle deslizante...
+
+Por exemplo: Usar o atributo step com o valor 3 (step="3") no input number... Especificando que, ao clicarmos nos "botões giratórios", o conteúdo numérico da caixa deve AUMENTAR OU DIMINUIR de três em três unidades.
+
+O atributo "step" é válido para os inputs do tipo number, date, month, time e mais alguns outros (serve para inputs numéricos de forma geral)... 
+
+A sintaxe do valor do atributo é a mesma para todos esses inputs, que dever ser um número especificando o intervalo de passo Obs.: No caso do input time, o número deve ser referente aos segundos - se você quiser determinar um intervalor de três em três minutos por exemplo, deve fazer isso inserindo o valor "180" segundos (três minutos). Um valor menor do que 60 segundos no step para "time" permitirá que, além das horas e minutos, o formato do campo expanda para que o usuário também possa inserir os segundos.
+
+Como valor de step, se você colocar um número inteiro (ex: 3). Isso fará com que apenas inteiros sejam inseridos na caixa. Se você quiser que a base de passo decorra em forma de um número quebrado (ex: 3.4, 3.5, 3.6 e por aí vai...), você deve inserir no atributo um valor numérico quebrado (ex: 0.1).
+
+Se não for explicitamente incluída, a step assumirá por padrão o valor "1" para number, e "1" para algum tipo de unidade (minuto, semana, mês, dia) para os tipos de input de data/hora. Não podendo assim trabalhar com números quebrados... Para conseguir trabalhar com números quebrados e não precisar especificar um valor, você pode colocar no "step" o valor "any" (qualquer).
+
+Atenção: O atributo step especifica um intervalo de unidades de avanço ou retorno para o valor de um input nos "botões giratórios" da caixa, entretanto o usuário ainda pode inserir valores de forma manual... E inclusive fazer isso inserindo valores que estão fora do intervalo de unidades determinado no atributo step. 
+
+No entanto, ao fazer isso, o usuário não irá conseguir executar a submissão do formulário (Caso o user insira um conteúdo com um valor fora do intervalo especificado, um pequeno balão embaixo do campo alertando os valores válidos mais próximos aceitos aparece).
+
+value:
+
+Você pode usar esse atributo para estabelecer um valor inicial para um componente de entrada (input). Por exemplo: Usar o atributo value com o valor "10" (value="10") no input number, especificando que o conteúdo inicial da caixa deve ser 10. Dessa forma, ao abrir a página, o input já será carregado com esse valor preenchido no formulário.
+
+Nota: Utilizar o atributo "value" torna a execução do atributo "placeholder" inválida... Isso ocorre porque o campo já será carregado preenchido, impedindo a visualização da dica.
+
+O atributo "value" é válido para os inputs do tipo number, date, month, time e muitos outros (serve para inputs numéricos, mas também é válido para botões de opção, caixa de seleção, elementos de opção...) 
+
+Para cara um desses inputs, a sintaxe do VALOR do atributo muda (sintaxe = forma como é escrito). -->
+</head>
+<body>
+    <h1>Teste de formulário</h1>
+    <form action="cadastro.php">
+        <p>
+            <label for="inome">Nome</label> <input type="text" name="nome" id="inome" required maxlength="20" autocomplete="name">
+        </p>
+
+        <p>
+            <label for="imes">Periodo Letivo:</label>
+            <input type="month" name="mes" id="imes" value="2024-06">
+        </p>
+
+        <p>
+            <label for="idata">Dia da prova:</label>
+            <input type="date" name="data" id="idata" value="2024-06-20">
+        </p>
+
+        <p>
+            <label for="itempo">Horário da prova:</label>
+            <input type="time" name="tempo" id="itempo">
+        </p>
+
+        <p>
+            <label for="imedia">Média:</label>
+            <input type="number" name="media" id="imedia" min="0" max="10"  required step=".5">
+        </p>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
+    </form>
+
+    <!-- É importante lembrar que NEM TODOS OS TIPOS DE INPUT FUNCIONAM EM NAVEGADORES DIFERENTES, então necssário que haja ter essa mentalidade de que nem todo tipo de input é acessivel -->
+</body>
+</html>

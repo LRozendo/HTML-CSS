@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+/* PARA ONDE MANDAR OS DADOS DE UM FORMULÁRIO?
+
+Depois que você criar um formulário simples em HTML, é possível preencher os campos e até mesmo clicar no botão "Enviar"... Entretanto os dados simplesmente somem ao clicar no botão. Para onde os dados de um formulário devem ir depois que o usuário faz a submissão? 
+
+Normalmente nós vamos mandar e encaminhar os dados para alguma linguagem de programação, como por exemplo: ASP, Java, PHP, JavaScript e por aí vai...
+
+Para de fato encaminhar os dados do formulário para alguma linguagem, dentro da tag de abertura do formulário (<form>), temos que configurar o atributo " action " (por padrão esse atributo já vem embutido dentro da tag form)... Como valor desse atributo, devemos inserir o nome do script que vai receber os dados (ex: cadastro.php).
+
+Obs.: Sim, para poder cadastrar os dados do formulário, é necessário criar um script, um programa... Que terá como função justamente essa finalidade de cadastro.
+
+Depois de configurar o atributo "action" especificando o script que vai receber os dados, a ação desse atributo só vai ser disparada (iniciando o envio dos dados do formulário) quando o usuário clicar no botão "Enviar" (input submit), no botão de submissão do form...
+
+*Se você colocar como valor de "action" um nome fictício de um script que não existe, ao clicar em "Enviar" no formulário, simplesmente irá ocorrer um erro, já que o sistema não vai encontrar o arquivo desse script.* 
+
+INPUTS (COMPONENTE DE ENTRADA) E OS ATRIBUTOS "NAME" E "ID":
+
+Na maioria dos tipos de input para formulários (componentes de entrada de dados), é necessário ter os atributos "name" e "id"... Ao inserir um componente, por padrão esses dois atributos já acompanham a tag de input. Você pode dar a mesma nomenclatura para ambos se quiser.
+
+Sobre o parâmetro " name ", de certa maneira ele serve para identificar um elemento, assim como o parâmetro "id" faz...
+
+De forma geral, pode-se dizer que:
+
+ID: O id é importante para o browser (front-end), para a manipulação do DOM (arvore do documento), CSS e usado para criar o VÍNCULO entre a nossa label e o seu respectivo componente.
+
+NAME: O name é importante para o servidor/linguagens de programação (back-end) e o HTML.
+
+O name é principalmente usado para elementos do tipo input em forms, ou seja para campos de inserção de dados e é exatamente o name que identifica no servidor o campo.
+
+Vale lembrar que o valor do id deve ser único para cada documento, já o valor do name pode ocorrer mais de uma vez por documento. 
+
+Obs.: Como foi dito, o atributo name é muito usado na parte do servidor nas linguagens de programação, entretanto ele é mais útil especificamente para algumas linguagens, como o PHP por exemplo... Já para linguagens como o JavaScript, o id é mais utilizado, mesmo sendo para o servidor... (No JS até dá para identificar e puxar o campo usando o name, mas o id é o considerado padrão para a linguagem).
+
+Dessa maneira, entenda que você sempre precisa identificar todos os inputs (componentes de entrada) do formulário com um name e com um id, ambos tem suas funções. (a única exceção para isso seria o botão de submissão, que mesmo sendo um input não necessita desses atributos de identificação, visto que não recebe dados e não tem etiqueta).
+
+Como sabemos, devemos encaminhar os dados de um formulário para uma linguagem de programação... 
+
+Entretanto, para encaminhar esses dados para a linguagem, existem dois métodos de envio, que são o "GET" e o "POST". Eles definem POR ONDE os dados devem ser enviados. 
+
+HTTP (PROTOCOLO DE COMUNICAÇÃO NA WEB):
+
+Não dá para falar sobre os métodos de envio GET e POST sem introduzir o protocolo HTTP... O significado dessa sigla é o seguinte: Hyper Text Transfer Protocol (Protocolo de Transferência de Hipertexto). 
+
+O hipertexto em si seriam arquivos de mídia navegáveis, como: Texto, imagens, sons, vídeos... Textos com ligações e configurações a mais que tornam ele mais dinâmico.
+
+Nota: O termo PROTOCOLO pode ser definido como " Uma série de regras que são executadas dentro de um sistema para que algo possa acontecer de forma adequada " - Existem protocolos (sequência de passos) para fazer qualquer coisa, desde pegar um simples produto na prateleira do supermercado até estabelecer uma comunicação entre sistemas computacionais (HTTP).
+
+Na sua definição, o HTTP nada mais é do que um protocolo de PEDIDO E REPOSTA, um protocolo de rede para comunicação na web (internet) usado pela World Wide Web que permite que duas ou mais máquinas conectadas à internet se comuniquem entre si... Ou seja, esse protocolo deve ser implementado nos softwares responsáveis por essa comunicação, como nos navegadores e servidores web. Por isso os endereços dos websites utilizam a expressão "HTTP", definindo o protocolo usado. Sendo que o HTTP também sempre estará trabalhando em conjunto com mais dois outros protocolos, o TCP e o IP (formando o modelo TCP/IP).
+
+Essa comunicação na web pelo HTTP é estabelecida através de Requisições HTTP (requests) e Respostas HTTP (responses). Essas Requisições HTTP são mensagens enviadas pelo cliente (navegador) para iniciar uma ação no servidor... Basicamente, uma Requisição HTTP é composta por um cabeçalho e um corpo de mensagem que informa ao servidor detalhes do pedido. As respostas HTTP basicamente também são compostas da mesma forma.
+
+Ao receber uma requisição (request), o servidor por consequência responde a nossa solicitação enviando o arquivo hipertexto requisitado no pedido (response)... O browser recebe esse arquivo e compila em formato visual para o usuário (uma página de site por ex).
+
+Quando acessamos um site, é esse protocolo que utilizamos para fazer isso (HTTP). As requisições desse protocolo possuem alguns métodos, ou, como também são chamados, verbos.
+
+Os verbos HTTP definem qual ação deve ser realizada e, dependendo do verbo, o servidor pode dar uma resposta diferente. Os métodos de envio de dados GET e POST são justamente os verbos mais comuns das requisições do protocolo HTTP (protocolo de comunicação na web). 
+
+MÉTODOS (VERBOS) DE ENVIO GET E POST:
+
+Quando vamos enviar os dados de um formulário HTML para uma linguagem de programação (back-end), temos que especificar qual método de envio que iremos utilizar para mandar esses dados. Para fazer isso, dentro da tag de abertura do formulário (<form>), basta adicionar o atributo " method "... Como valor desse atributo, podemos inserir "GET" ou "POST"... Especificando assim o método de envio dos dados da Requisição HTTP. Portanto, o atributo "method" define o método HTTP com que o formulário HTML irá lidar com os dados inseridos pelo usuário. 
+    
+    Segue uma descrição desses métodos:
+    
+    GET:
+    
+    Esse é o método padrão de envio de dados. Esse método utiliza a própria URL para enviar os dados do formulário ao servidor. Quando usamos o método HTTP GET, a mensagem não necessita de um corpo, pois os dados estão contidos na URL. Por isso, os parâmetros são passados no cabeçalho da Requisição HTTP e podem ser vistos pela URL.
+    
+    O navegador condensa todos os dados digitados no formulário pelo visitante, coloca junto com a URL e envia como parte do endereço acessado, separando o endereço da URL do arquivo em si, e os dados do usuário, por um "?"...  
+    
+    Nesse processo, os dados do formulário são enviados em pares nome-valor (nomenclatura do name e o dado). Para cada campo, um par de "nome-valor" é gerado para ser enviado.
+    
+    Todo componente de entrada (input) colocado dentro do formulário, com a propriedade "name" preenchida, gera um par nome=valor para ser enviado no servidor.
+    
+    Isso significa que, por consequência, no método GET esses dados (pares "nome-valor") ficam visíveis na URL... Eles ficam expostos de forma que o usuário consegue ver com facilidade (ou qualquer pessoa que tenha recebido e visualizado tal link/URL).
+    
+    Importante: Para qualquer sistema de busca, no qual temos um formulário em que o usuário faz uma pesquisa por algo (ex: Google, Formulário de busca de produtos da "Am4zuummm", ML e por aí vai), o método de envio GET é algo extremamente importante. Isso porque, como os dados da busca ficam na URL, isso torna o link do RESULTADO DA BUSCA compartilhável. 
+    
+    Se um formulário de busca for configurado com o método de envio "POST", esses dados de busca não ficarão na URL e portando a página de um RESULTADO DE BUSCA já processada não poderá ser compartilhada por usuários, bem como o restante da paginação (ex: pag de resultado 1, 2 3, 4 e por aí vai)
+    
+    POST:
+    
+    Esse método envia os dados do formulário pelo corpo da Requisição HTTP. Quando um usuário envia um formulário HTML usando o método HTTP POST, os dados do formulário são incluídos no corpo da requisição HTTP e enviados para o servidor. 
+    
+    Nesse processo, assim como no GET, os dados do formulário também são enviados em pares nome-valor (nomenclatura do name e o dado). Para cada campo, um par de "nome-valor" é gerado para ser enviado.
+    
+    Igualmente, todo componente de entrada (input) colocado dentro do formulário, com a propriedade "name" preenchida, gera um par nome=valor para ser enviado no servidor.
+    
+    O servidor então processa os dados e envia uma resposta ao cliente (ex: Uma página com a mensagem "Cadastro efetuado com sucesso").
+    
+    Essa resposta do servidor é enviada ao cliente (navegador) usando o mesmo protocolo HTTP que foi usado para enviar a solicitação. Quando a reposta chega no cliente, o navegador resgata o HTML e compila em formato visual para o usuário.
+    
+    Obs.: No método de envio HTTP POST, os dados não ficam visíveis e expostos na URL como acontece com o método GET... Entretanto, isso não faz com que esses dados fiquem mais protegidos por causa disso, pois eles ainda podem ser visualizados pelo DevTools. Para visualizar os dados de um formulário enviados pelo método POST, basta: Abrir o DevTools > Executar a submissão de dados do formulário > Ir na Área "Network" (Rede) no DT > Arquivo do script > Payload > E aqui estarão os dados enviados. Dessa forma, se inspecionarmos a requisição pelo DT, conseguimos acessar os dados enviados.
+    
+    QUANDO USAR GET OU POST?
+    
+    Em que momentos devemos utilizar o GET ou POST?
+    
+    GET: Basicamente você vai usar o método de envio HTTP GET quando os dados que serão enviados não forem sensíveis. Por exemplo: Nome da pessoa, peso (KG) ou buscas no estilo Google... (Quando o usuário não faz uma busca que é secreta)
+    
+    POST: Existem momentos que a utilização do método POST é obrigatória. Utilize o método de envio HTTP POST quando os dados que serão enviados forem sensíveis, quando você não quiser que eles apareçam na URL. 
+    
+    Por exemplo: Senha, número do cartão de crédito, endereço, CEP e por aí vai... Para fazer o envio de fotos ou QUALQUER TIPO DE ARQUIVO, use o POST também. Obs.: Se você está trabalhando com dados de cartão de crédito e senha, você terá que trabalhar com o protocolo HTTPS também, para proteger esses dados da forma adequada, apenas o POST não é o bastante.
+    
+    Nota: Se existem dois verbos/métodos diferentes (GET e POST), é porque eles foram feitos para serem utilizados em locais diferentes.
+    
+    As requisições do tipo GET são recomendadas para obter dados de um determinado recurso. Como em um formulário de busca ou em uma listagem de todos os produtos cadastrados. Quando você está solicitando informações para serem retornadas para você, utilize o GET.
+    
+    Já as requisições POST são mais utilizadas para enviar informações para serem processadas, como por exemplo, criar algum recurso, como um produto, ou cadastrar um novo cliente. Basicamente, usamos POST quando queremos salvar alguma informação no servidor.
+    
+    LIMITAÇÕES DO MÉTODO GET:
+    
+    Quando enviamos dados pelo método HTTP GET, existe um limite de até 3 mil bytes de dados para a mensagem enviada (que seria aproximadamente 3 mil letras - inseridas inicialmente num formulário). Se os dados ultrapassarem esses 3 mil bytes, não vai ser possível usar o GET (use o método POST para enviar dados com mais de 3 mil bytes) - Ou seja, se tentarmos passar uma grande quantidade de informações via GET, algumas partes podem ser perdidas no caminho.
+    
+    Uma outra situação em que você não vai poder usar o GET, seria em formulários que irão enviar arquivos de fotos ou qualquer tipo de arquivo. Para esses formulários que irão enviar arquivos de fotos ou qualquer tipo de arquivo, não devemos usar o GET, visto que esse método não aceita enviar arquivos. Use o método POST nesses casos.
+
+-------------------------------------------------------------------------------------------------------
+
+    VÍNCULO ENTRE LABELS E COMPONENTES:
+    
+    É muito importante que exista um vínculo entre a label e o seu respectivo componente... O navegador não é inteligente o suficiente para saber que determinada etiqueta está ligada a tal componente, por isso essa configuração de ligação deve ser feita...
+    
+    Para fazer essa ligação, estabelecer esse vínculo entre a label e o componente, na tag da etiqueta <label> devemos usar o atributo " for " (por padrão esse atributo já vem embutido dentro da tag label).
+    
+    Como valor de "for", você deve justamente inserir o nome do id do respectivo componente de entrada da label.
+    
+    Obs.: Geralmente damos a mesma nomenclatura para o name e o id de um componente input, mas também existe a possibilidade de dar nomenclaturas diferentes para esses atributos.
+    
+    Considerando que o atributo name e id do seu componente possuem nomenclaturas diferentes: Para o valor de "for", obrigatoriamente usamos sempre o id, visto que "for" só aceita o id para criar o vínculo entre a label e o respectivo input. (se as nomenclatura de name e id forem iguais, o 'for' usa o id do mesmo jeito).
+    
+    Depois que você configurar o atributo "for" da sua label com o id do input, o vínculo entre essa label e o input estará firmado.
+    
+    Nota: Não se cria um formulário sem relacionar o label ao input, é importantíssimo que você sempre estabeleça o vínculo. Caso contrário isso vai dificultar o trabalho dos mecanismos de busca, do HTML e consequentemente do seu navegador, visto que eles não irão saber qual caixa input está relacionada com qual label...
+    
+    Depois de estabelecer o vínculo, visualmente o nosso formulário estará igual, no entanto a parte semântica estará funcionando adequadamente e é isso que mais importa.
+    
+    Fora que, criando a ligação, ao clicar diretamente na label na página, a sua respectiva caixa de componente vinculada fica sinalizada e o cursor de texto da caixa (se for uma caixa de texto) é ativado, selecionando a caixa. 
+    
+    Isso pode ser útil principalmente para usuários de celular, visto que a tela é menor e muitas vezes ocorre do user errar o clique com o dedo... Apertar num ponto específico no celular às vezes pode ser complicado, um label vinculado adequadamente significa uma área maior de sensibilidade, ajudando na experiência do usuário durante a utilização e preenchimento do formulário. */
+
+    </style>
+</head>
+<body>
+    <h1>formulário</h1>
+
+    <form action="cadastro.php" autocomplete="off" method="post">
+        <p><label for="inome">Nome:</label> <input type="text" name="nome" id="inome"></p>
+        <p><label for="isobrenome">Sobrenome:</label> <input type="text" name="Sobrenome" id="isobrenome"></p>
+        <p><input type="submit" value="Enviar"></p>
+    </form>
+</body>
+</html>
