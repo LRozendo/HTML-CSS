@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: lightgray;
+}
+
+header {
+    background-color: gray;
+}
+
+header h1 {
+    padding: 10px;
+
+    text-align: center;
+}
+
+#burguer {
+    display: block;
+    
+    background-color: rgb(48, 48, 48);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 10px;
+
+    cursor: pointer; /* Cursor: mostra as opções de cursor */
+}
+
+#burguer:hover {
+    background-color: white;
+    color: black;
+
+}
+
+menu {
+    display: none;
+}
+
+menu ul {
+    list-style-type: none;
+}
+
+li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    text-align: center;
+    border-top: 2px solid gray  ;
+}
+
+a:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+main {
+    width: 90vw;
+    background-color: white;
+
+    margin: auto;
+
+    padding: 10px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    border: 3px solid gainsboro;
+}
+
+article h2 {
+    padding-bottom: 20px;
+}
+
+article p {
+    text-align: justify;
+    margin-bottom: 10px;
+    text-indent: 20px;
+    line-height: 1.3em;
+}
+

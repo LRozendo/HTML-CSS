@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+/* Todas as demais midias */
+
+/* Typical Device Breakpoints:
+--------------------------------
+    Pequnas telas: até de 320px 
+    Celulares: de 321px até 767px
+    Tablet: de 768px até 1023px
+    Desktop: de 1024px até 1439px
+    Grandes telas: acima de 1440px
+
+*/
+
+@media print {
+    body {
+        background-image: url(../imagens/back-print.jpg); /* desnecessário */
+
+    }
+
+    main {
+
+        height: 90vh;
+
+        border: 2px solid gainsboro;
+        border-radius: 5px;
+
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    main::after {
+        content: 'Essa impressão foi feita através do site www.cursoemvideo.com';
+        text-decoration: overline;
+
+        color: rgb(200, 200, 200);
+
+        text-shadow: 0px 0px ;
+    }
+
+    main h1 {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #cll {
+        display: none;
+    }
+
+    #print {
+        display: block;
+        margin: auto;
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { /* TABLET */
+    body {
+        background-image: url(../imagens/back-tablet.jpg);
+    }
+
+    #cll {
+        display: none;
+    }
+    
+    #tb {
+        display: block;
+        margin: auto;
+    }
+    
+    #print {
+        display: none;
+    }
+    
+    #pc {
+        display: none;
+    }
+    
+    #tv {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) { /* DESKTOP */
+    body {
+        background-image: url(../imagens/back-pc.jpg);
+    }
+
+    #cll {
+        display: none;
+    }
+    
+    #tb {
+        display: none;
+    }
+    
+    #print {
+        display: none;
+    }
+    
+    #pc {
+        display: block;
+        margin: auto;
+    }
+    
+    #tv {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1440px) { /* TELAS GRANDES */
+    body {
+        background-image: url(../imagens/back-tv.jpg);
+    }
+
+    #cll {
+        display: none;
+    }
+    
+    #tb {
+        display: none;
+    }
+    
+    #print {
+        display: none;
+    }
+    
+    #pc {
+        display: none;
+    }
+    
+    #tv {
+        display: block;
+        margin: auto;
+    }
+}
