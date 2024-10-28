@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    <style>
+        /* Alinhamento de Conteúdo empacotado
+
+        O alinhamento de conteúdo empacotado é fundamental para entender como os elementos empacotados se comportam em um contêiner flexível. O uso da propriedade align-content é crucial para decidir o que acontece com o espaço em branco quando os itens são empacotados.
+
+
+        Propiedades do alinhamento
+
+        As propriedades de alinhamento no Flexbox são fundamentais para controlar como os itens são dispostos dentro de um contêiner flexível. Agora CUIDADO PARA NÃO CONFUNDIR as propriedades "align-items" (já apresentada) com a "align-content" e "align-content" com "justify-content" (já apresentada).
+
+        align-content: Esta propriedade alinha os ITENS EMPACOTADOS ao longo do eixo transversal, mas apenas quando há espaço extra no contêiner. É importante notar que align-content só tem efeito quando há múltiplas linhas de itens. Por exemplo, se você usar "align-content: space-between;", o espaço extra será distribuído uniformemente entre as linhas.
+
+        OBS: Os valores utilizados com o "align-items" são os mesmos dos "justify-content" mais o valor "Stretch"
+
+        */
+        .container{
+            height: 400px;
+            background-color: salmon;
+            
+            display: flex;
+
+            flex-flow: row wrap;
+            align-content: space-around;
+        }
+
+        .item{
+            padding: 40px;
+
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+    <div class="item">J</div>
+    <div class="item">L</div>
+</div>
+</body>

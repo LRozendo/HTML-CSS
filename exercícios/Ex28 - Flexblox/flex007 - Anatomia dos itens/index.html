@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    <style>
+
+        /* Dentro de um contêiner flexível, os elementos individuais são chamados de itens flexbox ou flex items. Embora o contêiner pai seja definido com display: flex, os itens filhos não herdam essa propriedade automaticamente. No entanto, podemos aplicar propriedades específicas aos itens para controlar seu comportamento dentro do layout flexível.
+
+
+        Propriedades dos Itens Flexbox:
+        
+        ● order: controla a ordem de exibição dos itens dentro do contêiner, permitindo reordenar elementos visualmente sem alterar o código HTML. Por padrão, todos os itens têm order
+
+        ● flex-grow: define a capacidade de um item crescer para ocupar o espaço disponível no contêiner.
+
+        ● flex-shrink: define a capacidade de um item encolher para evitar o transbordamento do contêiner.
+
+        ● flex-basis: define o tamanho base de um item antes que a distribuição de espaço seja calculada.
+        
+        ● align-self: permite alinhar individualmente os itens no eixo transversal (cross axis), substituindo o alinhamento definido pelo contêiner com align-items. Os valores possíveis são:
+            ○ auto: herda o alinhamento do contêiner pai.
+            ○ flex-start: alinha o item ao início do eixo transversal.
+            ○ flex-end: alinha o item ao final do eixo transversal.
+            ○ center: centraliza o item no eixo transversal.
+            ○ stretch: estica o item para ocupar todo o espaço disponível no eixo transversal 
+        */
+        
+        #container{
+            height: 400px;
+
+            background-color: salmon;
+            
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .item{
+            background-color: aqua;
+
+            border: 1px solid black;
+            padding: 20px;
+            
+
+            text-align: center;
+        }
+
+        #i1 {
+            order: 1;
+            align-self: flex-end;
+        }
+        
+        #i2 {
+            order: 3;
+            align-self: auto;
+        }
+
+        #i3 {
+            order: -4;
+            align-self: stretch;
+        }
+
+        #i4 {
+            order: -2;
+            align-self: center;
+        }
+
+        #i5 {
+            order: 10;
+            align-self: stretch;
+        }
+
+        #i6 {
+            order: 3;
+            align-self: center;
+        }
+
+        #i7 {
+            order: 5;
+            align-self: auto;
+        }
+    </style>
+</head>
+<body>
+   <div id="container">
+    <div class="item" id="i1">A</div>
+    <div class="item" id="i2">B</div>
+    <div class="item" id="i3">C</div>
+    <div class="item" id="i4">D</div>
+    <div class="item" id="i5">E</div>
+    <div class="item" id="i6">F</div>
+    <div class="item" id="i7">G</div>
+</div>
+</body>

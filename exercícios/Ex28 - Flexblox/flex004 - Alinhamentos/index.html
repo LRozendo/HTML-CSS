@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    <style>
+        /* Os alinhamentos no Flexbox são fundamentais para organizar e distribuir os itens dentro de um contêiner flexível. Existem duas principais propriedades que controlam esses alinhamentos: justify-content e align-items.
+
+        JUSTIFY CONTENT
+
+
+        A propriedade justify-content alinha os itens ao longo do eixo principal (Main Axis). Aqui estão algumas opções:
+
+        Flex Start: Alinha os itens ao início do eixo principal. O espaço em branco fica no final.
+
+        Flex End: Alinha os itens ao final do eixo principal, com o espaço em branco no início.
+
+        Center: Centraliza os itens no eixo principal, distribuindo o espaço igualmente nas extremidades.
+
+        Space Between: O primeiro item fica no início e o último no final, com os itens intermediários distribuídos igualmente entre eles. 
+
+        Space Around: Cria espaços iguais ao redor de cada item, resultando em um espaço maior entre os itens do que nas extremidades.
+
+        Space Evenly: Distribui os itens de forma que haja espaços iguais antes, entre e depois dos itens, sem grudar o primeiro e o último nas extremidades do contêiner.
+        
+        ALIGN ITEMS
+
+
+        A propriedade align-items controla o alinhamento dos itens ao longo do eixo transversal (Cross Axis). As opções incluem:
+
+
+        Stretch: Por padrão, os itens se esticam para ocupar todo o espaço disponível no eixo transversal.
+
+        Flex Start: Alinha os itens ao início do eixo transversal.
+
+        Flex End: Alinha os itens ao final do eixo transversal.
+
+        Center: Centraliza os itens no eixo transversal
+        
+        */
+    </style>
+    
+    
+    <style>
+        .container{
+            background-color: salmon;
+            
+            height: 300px;
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+
+        .item{
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            
+
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+</div>
+<br>
+<hr>
+<br>
+
+</body>
