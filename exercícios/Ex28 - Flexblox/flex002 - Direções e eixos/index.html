@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    
+    <style>
+        /* O flex-direction é uma declaração feita nos objetos pais que define a direção em que os itens flexíveis são dispostos no contêiner. As quatro configurações são:
+
+            Row: Itens são organizados horizontalmente da esquerda para a direita (padrão).
+
+            Row Reverse: Itens são organizados horizontalmente da direita para a esquerda.
+
+            Column: Itens são empilhados verticalmente de cima para baixo.
+
+            Column Reverse: Itens são empilhados verticalmente de baixo para cima
+      */
+
+
+        /* Os eixos no Flexbox são fundamentais para entender como os elementos são dispostos dentro de um contêiner flexível e existem dois tipos: main-axis e cross-axis.
+        
+        Eixo Principal (Main Axis):
+
+        Este é o eixo ao longo do qual os itens flexíveis são organizados. Por padrão, quando a direção é definida como row, o eixo principal é horizontal, correndo da esquerda para a direita.
+
+        Eixo Transversal (Cross Axis):
+
+        O eixo transversal é perpendicular ao eixo principal. Se o eixo principal é horizontal (como em row), o eixo transversal será vertical, correndo de cima para baixo. Essa configuração é crucial para o alinhamento e a justificação dos itens dentro do contêiner.
+
+
+        Esses eixos são criados automaticamente quando você define a direção dos itens flexíveis e são essenciais para aplicar propriedades como justify-content e align-items, que controlam o alinhamento dos itens ao longo desses eixos.
+        */
+
+        .container{
+            background-color: salmon;
+            
+            display: flex;
+            flex-direction: row;
+        }
+
+        .item{
+            flex: auto;
+
+            background-color: lightskyblue;
+
+            border: 1px solid black;
+
+            text-align: center;
+
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+</div>
+</body>

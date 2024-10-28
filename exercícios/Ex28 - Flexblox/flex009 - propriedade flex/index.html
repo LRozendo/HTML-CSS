@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    <style>
+    /* A propriedade flex é uma das mais importantes e utilizadas para estilizar itens flexíveis (flex items) dentro de um contêiner flexível (flex container). Ela permite configurar de forma abreviada e eficiente as propriedades flex-grow, flex-shrink e flex-basis.
+
+
+    Ordem dos valores:
+    É fundamental lembrar que a ordem dos valores na propriedade flex é sempre: flex-grow, flex-shrink e flex-basis.
+
+    
+    Recomendação da W3C:
+    A W3C recomenda o uso da propriedade flex em vez de declarar individualmente as propriedades flex-grow, flex-shrink e flex-basis. Isso simplifica o código e torna a estilização mais eficiente.
+
+
+    Simplificações:
+
+    Existem valores abreviados para a propriedade flex que representam conjuntos de configurações comuns:
+
+    ● flex: 0 1 auto (equivalente a flex: initial): Configuração padrão. O item não cresce, encolhe na proporção padrão e tem tamanho base definido pelo conteúdo.
+
+    ● flex: 0 0 auto (equivalente a flex: none): O item se torna inflexível. Não cresce nem encolhe, e seu tamanho é definido pelo conteúdo.
+
+    ● flex: 1 1 auto (equivalente a flex: auto): Máxima flexibilidade. O item pode crescer e encolher livremente, e seu tamanho base é definido pelo conteúdo.
+
+    ● flex: <número>: Define apenas o flex-grow. flex-shrink será 1 e flex-basis será auto
+    */
+    </style>
+
+    
+    <style>
+        .container{
+            background-color: salmon;
+            
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .itemF{
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            text-align: center;
+        }
+
+        #F1{
+            /* flex-basis: 150px;
+            flex-grow: 0;
+            flex-shrink: 1; */
+
+            flex: 0 1 150px;
+        }
+
+        #F2{
+            /* flex-basis: 150px;
+            flex-grow: 2;
+            flex-shrink: 0; */
+
+            flex: 2 0 150px;
+        }
+
+        #F3{
+            /* flex-basis: 150px;
+            flex-grow: 1;
+            flex-shrink: 2; */
+
+            flex: 1 2 150px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Flex = Flex-basis + Flex-shrink + Flex-grow</h1>
+<div class="container">
+    <div class="itemF" id="F1">A</div>
+    <div class="itemF" id="F2">B</div>
+    <div class="itemF" id="F3">C</div>
+</div>
+</body>

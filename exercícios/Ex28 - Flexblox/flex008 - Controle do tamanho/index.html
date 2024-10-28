@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    <style>
+    /* A propriedade flex-basis define o tamanho inicial de um item flexível no eixo principal. Isso significa que, por padrão, a largura de um item em um contêiner com flex-direction: row será determinada pelo valor de flex-basis. Se o flex-direction for column, a altura do item será afetada.
+
+    Por padrão, flex-basis é definido como auto. Isso significa que o tamanho do item será determinado pelo conteúdo dentro dele. Por exemplo, um item com muito texto terá uma largura maior do que um item com apenas uma letra.
+
+    Você pode definir flex-basis com um valor fixo, como pixels. Se você definir flex-basis: 200px para todos os itens em um contêiner, cada item tentará ter 200px de largura (considerando flex-direction: row). No entanto, flex-basis é apenas uma base. Se não houver espaço suficiente no contêiner para todos os itens terem 200px de largura, eles serão reduzidos proporcionalmente. */
+
+
+
+    /* A propriedade flex-shrink controla o quanto um item pode encolher em relação aos outros itens no contêiner, caso o espaço disponível seja menor que a soma dos tamanhos base dos itens. O valor padrão é 1, o que significa que o item pode encolher.
+
+    Exemplo: Se flex-shrink for definido como 0, o item não encolherá, mesmo que o contêiner seja menor que a soma dos tamanhos base dos itens. Se flex-shrink for definido como 2, o item diminuira o dobro do tamanho de um item com flex-shrink definido como 1 e assim vai.
+    Cuidado: Definir flex-shrink como 0 com flex-wrap: nowrap pode fazer com que o item seja cortado ou ocultado se não houver espaço suficiente no contêiner. */
+
+
+
+    /* A propriedade flex-grow controla o quanto um item pode crescer em relação aos outros itens no contêiner, caso o espaço disponível seja maior que a soma dos tamanhos base dos itens. O valor padrão é 0, o que significa que o item não crescerá.
+
+    Exemplo: Se flex-grow for definido como 1, o item crescerá para ocupar o espaço disponível no contêiner. Se flex-grow for definido como 2, o item crescerá o dobro do tamanho de um item com flex-grow definido como 1 e assim vai. */
+    </style>
+
+    
+    <style>
+        .container{
+            background-color: salmon;
+            
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .itemB{
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            flex-basis: 150px;
+
+            text-align: center;
+            
+            align-self: flex-start;
+        }
+
+        .itemS{
+            width: 200px;
+
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            text-align: center;
+
+            flex-shrink: 1;
+
+            flex-grow: 0;
+        }
+
+        .itemG{
+            width: 150px;
+
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            text-align: center;
+
+            flex-grow: 1;
+
+            flex-shrink: 0;
+        }
+
+        .itemBSG{
+            background-color: aqua;
+
+            border: 1px solid black;
+
+            text-align: center;
+        }
+
+        #BSG1{
+            flex-basis: 150px;
+            flex-grow: 0;
+            flex-shrink: 1;
+        }
+
+        #BSG2{
+        flex-basis: 150px;
+        flex-grow: 2;
+        flex-shrink: 0;
+        }
+
+        #BSG3{
+            flex-basis: 150px;
+            flex-grow: 1;
+            flex-shrink: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flex-basis</h1>
+   <div class="container">
+    <div class="itemB">A</div>
+    <div class="itemB">B</div>
+    <div class="itemB">C</div>
+    <div class="itemB">Conteúdo um pouco maior</div>
+    <div class="itemB">E</div>
+    <div class="itemB">Conteúdo maior ainda, que vai ocupar mais espaço</div>
+    <div class="itemB">G</div>
+</div>
+
+<br>
+<hr>
+
+<h1>Flex-shrink</h1>
+<div class="container">
+    <div class="itemS">A</div>
+    <div class="itemS">B</div>
+    <div class="itemS">C</div>
+</div>
+
+<br>
+<hr>
+
+<h1>Flex-grow</h1>
+<div class="container">
+    <div class="itemG">A</div>
+    <div class="itemG">B</div>
+    <div class="itemG">C</div>
+</div>
+
+<br>
+<hr>
+
+<h1>Flex-basis + Flex-shrink + Flex-grow</h1>
+<div class="container">
+    <div class="itemBSG" id="BSG1">A</div>
+    <div class="itemBSG" id="BSG2">B</div>
+    <div class="itemBSG" id="BSG3">C</div>
+</div>
+</body>

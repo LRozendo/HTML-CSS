@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Blox</title>
+    
+    <style>
+        /* O Empacotamento Flexível (ou Flex Wrap) é uma propriedade do modelo Flexbox que controla como os itens dentro de um contêiner flexível se comportam quando não há espaço suficiente na linha para acomodá-los.
+        
+        Comportamentos do Flex Wrap:
+            NOWRAP: Este é o valor padrão. Com essa configuração, os itens não quebram para uma nova linha, mesmo que o contêiner fique pequeno. Os itens tentarão se ajustar dentro da linha, podendo encolher, mas não mudarão de linha. Isso significa que os itens permanecem na sequência original, sem quebras.
+
+            WRAP: Quando configurado como wrap, os itens se empacotam em várias linhas, de acordo com o sentido do eixo transversal (cross-axis), assim que o espaço na linha atual se esgota. Isso permite que os itens se movam para a próxima linha, mantendo a ordem original.
+
+            WRAP-REVERSE: Este valor funciona de maneira semelhante ao wrap, mas os itens se empacotam na direção oposta do eixo transversal (cross-axis), ou seja, a nova linha é criada acima da linha anterior. Isso pode ser útil para layouts que requerem uma ordem visual específica
+        */
+
+        /* O flex-flow é uma propriedade do CSS que combina duas outras propriedades: flex-direction e flex-wrap. Essa junção permite que você defina a direção dos itens flexíveis e como eles devem se empacotar em uma única declaração, tornando o código mais conciso e fácil de ler. */
+        .container{
+            background-color: salmon;
+            
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .item{
+            flex: auto;
+            
+            background-color: lightskyblue;
+
+            border: 1px solid black;
+
+            text-align: center;
+
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="item">Exemplo de bloco A</div>
+    <div class="item">Exemplo de bloco B</div>
+    <div class="item">Exemplo de bloco C</div>
+    <div class="item">Exemplo de bloco D</div>
+    <div class="item">Exemplo de bloco E</div>
+    <div class="item">Exemplo de bloco F</div>
+    <div class="item">Exemplo de bloco G</div>
+</div>
+</body>
