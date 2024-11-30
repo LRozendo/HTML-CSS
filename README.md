@@ -1,4 +1,4 @@
 # HTML-CSS
- Curso de HTML5 e CSS3 do CursoemVideo
+ Learning to develop websites with HTML and CSS.
 
- Aprendendo a desenvolver sites com o curso grátis de HTML e CSS.
+ Aprendendo a desenvolver sites com HTML e CSS.
